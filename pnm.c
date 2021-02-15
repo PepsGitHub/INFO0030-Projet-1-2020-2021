@@ -22,11 +22,12 @@
  *
  */
 struct PNM_t {
-   int magicNumber;
-   int columns;
-   int rows;
-   int maxValuePixel;
-   int **matrix;
+   int magicNumber; /*Nombre qui caractérise le type de fichier
+                      (1 pour pbm, 2 pour pgm, 3 pour ppm)*/
+   int columns; //Nombre de pixels de hauteur
+   int rows; //Nombre de pixels de largeur
+   int maxValuePixel; //Valeur maximale que peut prendre un pixel
+   int **matrix; //Matrice contenant la valeur de chaque pixel de l'image
 };
 
 //debut constructeur

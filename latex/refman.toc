@@ -1,0 +1,32 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Data Structure Index}{1}%
+\contentsline {section}{\numberline {1.1}Data Structures}{1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}%
+\contentsline {section}{\numberline {2.1}File List}{3}%
+\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}%
+\contentsline {section}{\numberline {3.1}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}N\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{5}%
+\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}%
+\contentsline {chapter}{\numberline {4}File Documentation}{7}%
+\contentsline {section}{\numberline {4.1}pnm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h File Reference}{7}%
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}%
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{8}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}create\_matrix()}{8}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}create\_pnm()}{9}%
+\contentsline {subsubsection}{\numberline {4.1.2.3}destroy\_matrix\_columns()}{9}%
+\contentsline {subsubsection}{\numberline {4.1.2.4}destroy\_matrix\_rows()}{10}%
+\contentsline {subsubsection}{\numberline {4.1.2.5}destroy\_pnm()}{10}%
+\contentsline {subsubsection}{\numberline {4.1.2.6}get\_columns()}{11}%
+\contentsline {subsubsection}{\numberline {4.1.2.7}get\_magicNumber()}{11}%
+\contentsline {subsubsection}{\numberline {4.1.2.8}get\_matrix()}{12}%
+\contentsline {subsubsection}{\numberline {4.1.2.9}get\_maxValuePixel()}{12}%
+\contentsline {subsubsection}{\numberline {4.1.2.10}get\_rows()}{13}%
+\contentsline {subsubsection}{\numberline {4.1.2.11}load\_matrix()}{13}%
+\contentsline {subsubsection}{\numberline {4.1.2.12}load\_pnm()}{14}%
+\contentsline {subsubsection}{\numberline {4.1.2.13}manage\_comments()}{14}%
+\contentsline {subsubsection}{\numberline {4.1.2.14}set\_columns()}{15}%
+\contentsline {subsubsection}{\numberline {4.1.2.15}set\_magicNumber()}{15}%
+\contentsline {subsubsection}{\numberline {4.1.2.16}set\_matrix()}{16}%
+\contentsline {subsubsection}{\numberline {4.1.2.17}set\_maxValuePixel()}{17}%
+\contentsline {subsubsection}{\numberline {4.1.2.18}set\_rows()}{18}%
+\contentsline {subsubsection}{\numberline {4.1.2.19}write\_matrix()}{19}%
+\contentsline {chapter}{Index}{21}%

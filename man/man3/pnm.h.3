@@ -1,0 +1,654 @@
+.TH "pnm.h" 3 "Mon Feb 15 2021" "Version 1.0" "Projet 1" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pnm.h \- Librairie pour gérer les fichiers d'extension pnm (\&.pbm, \&.pgm, \&.ppm)  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBPNM_t\fP \fBPNM\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBload_pnm\fP (\fBPNM\fP **image, char *filename)"
+.br
+.RI "Charge une image PNM depuis un fichier\&. "
+.ti -1c
+.RI "int \fBwrite_pnm\fP (\fBPNM\fP *image, char *filename)"
+.br
+.ti -1c
+.RI "\fBPNM\fP * \fBcreate_pnm\fP (void)"
+.br
+.RI "Crée et alloue dynamiquement une variable de type opaque PNM*\&. "
+.ti -1c
+.RI "void \fBdestroy_pnm\fP (\fBPNM\fP *image)"
+.br
+.RI "Libère la mémoire allouée par *create_pnm\&. "
+.ti -1c
+.RI "int \fBget_magicNumber\fP (\fBPNM\fP *image)"
+.br
+.RI "Accesseur en lecture pour le champ magicNumber de image*\&. "
+.ti -1c
+.RI "int \fBget_columns\fP (\fBPNM\fP *image)"
+.br
+.RI "Accesseur en lecture pour le champ columns de image*\&. "
+.ti -1c
+.RI "int \fBget_rows\fP (\fBPNM\fP *image)"
+.br
+.RI "Accesseur en lecture pour le champ rows de image*\&. "
+.ti -1c
+.RI "int \fBget_maxValuePixel\fP (\fBPNM\fP *image)"
+.br
+.RI "Accesseur en lecture pour le champ maxValuePixel de image*\&. "
+.ti -1c
+.RI "int ** \fBget_matrix\fP (\fBPNM\fP *image)"
+.br
+.RI "Accesseur en lecture pour le champ matrix de image*\&. "
+.ti -1c
+.RI "\fBPNM\fP * \fBset_magicNumber\fP (\fBPNM\fP *image, int magicNumber)"
+.br
+.RI "Accesseur en écriture pour le champ magicNumber de *image\&. "
+.ti -1c
+.RI "\fBPNM\fP * \fBset_columns\fP (\fBPNM\fP *image, int columns)"
+.br
+.RI "Accesseur en écriture pour le champ columns de *image\&. "
+.ti -1c
+.RI "\fBPNM\fP * \fBset_rows\fP (\fBPNM\fP *image, int rows)"
+.br
+.RI "Accesseur en écriture pour le champ rows de *image\&. "
+.ti -1c
+.RI "\fBPNM\fP * \fBset_maxValuePixel\fP (\fBPNM\fP *image, int maxValuePixel)"
+.br
+.RI "Accesseur en écriture pour le champ maxValuePixel de *image\&. "
+.ti -1c
+.RI "\fBPNM\fP * \fBset_matrix\fP (\fBPNM\fP *image, int **matrix)"
+.br
+.RI "Accesseur en écriture pour le champ matrix de *image\&. "
+.ti -1c
+.RI "int ** \fBcreate_matrix\fP (\fBPNM\fP *image)"
+.br
+.RI "Crée et alloue dynamiquement la matrice de *image\&. "
+.ti -1c
+.RI "int \fBload_matrix\fP (\fBPNM\fP *image, FILE *fp)"
+.br
+.RI "Lecture dans un fichier et remplissage de la matrice de *image\&. "
+.ti -1c
+.RI "int \fBwrite_matrix\fP (\fBPNM\fP *image, FILE *fp)"
+.br
+.RI "Ecriture de la matrice de *image dans un fichier\&. "
+.ti -1c
+.RI "void \fBdestroy_matrix_rows\fP (\fBPNM\fP *image)"
+.br
+.RI "Libère la mémoire allouée par **create_matrix\&. "
+.ti -1c
+.RI "void \fBdestroy_matrix_columns\fP (\fBPNM\fP *image)"
+.br
+.RI "Libère la mémoire allouée par **create_matrix\&. "
+.ti -1c
+.RI "int \fBmanage_comments\fP (FILE *fp)"
+.br
+.RI "Permet de gérer une ligne pour savoir si on doit l'ignorer (celles commençant par '#') "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Librairie pour gérer les fichiers d'extension pnm (\&.pbm, \&.pgm, \&.ppm) 
+
+\fBpnm\&.h\fP
+.PP
+Ce fichier contient les déclarations de types et les prototypes des fonctions pour la manipulation d'images PNM\&.
+.PP
+\fBAuthor\fP
+.RS 4
+: Dumoulin Peissone S193957 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+: 22/02/21 @projet: INFO0030 Projet 1
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Peissone Dumoulin - Université de Liège 
+.RE
+.PP
+\fBVersion\fP
+.RS 4
+1\&.0 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+22/02/2021
+.RE
+.PP
+Déclaration du type opaque PNM 
+.SH "Function Documentation"
+.PP 
+.SS "int** create_matrix (\fBPNM\fP * image)"
+
+.PP
+Crée et alloue dynamiquement la matrice de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: matrice allouée
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "\fBPNM\fP* create_pnm ()"
+
+.PP
+Crée et alloue dynamiquement une variable de type opaque PNM*\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImagicNumber\fP l'entier représentant la chaîne de caractère initiale (1 pour 'P1', 2 pour 'P2' et 3 pour 'P3') 
+.br
+\fIcolumns\fP le nombre de pixels 'verticaux' 
+.br
+\fIrows\fP le nombre de pixels 'horizontaux' 
+.br
+\fImaxValuePixel\fP la valeur maximale que peut prendre un pixel
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: / 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: *image alloué
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "void destroy_matrix_columns (\fBPNM\fP * image)"
+
+.PP
+Libère la mémoire allouée par **create_matrix\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: la matrice colonne est libérée
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "void destroy_matrix_rows (\fBPNM\fP * image)"
+
+.PP
+Libère la mémoire allouée par **create_matrix\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: la matrice ligne est libérée
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "void destroy_pnm (\fBPNM\fP * image)"
+
+.PP
+Libère la mémoire allouée par *create_pnm\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: *image libéré
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int get_columns (\fBPNM\fP * image)"
+
+.PP
+Accesseur en lecture pour le champ columns de image*\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en lecture au champ columns de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int get_magicNumber (\fBPNM\fP * image)"
+
+.PP
+Accesseur en lecture pour le champ magicNumber de image*\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en lecture au champ magicNumber de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int** get_matrix (\fBPNM\fP * image)"
+
+.PP
+Accesseur en lecture pour le champ matrix de image*\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en lecture au champ matrix de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int get_maxValuePixel (\fBPNM\fP * image)"
+
+.PP
+Accesseur en lecture pour le champ maxValuePixel de image*\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en lecture au champ maxValuePixel de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int get_rows (\fBPNM\fP * image)"
+
+.PP
+Accesseur en lecture pour le champ rows de image*\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en lecture au champ rows de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int load_matrix (\fBPNM\fP * image, FILE * fp)"
+
+.PP
+Lecture dans un fichier et remplissage de la matrice de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fIfp\fP un pointeur sur FILE
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL, fp != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: matrice chargée
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès -3 Contenu du fichier en input mal formé 
+.RE
+.PP
+
+.SS "int load_pnm (\fBPNM\fP ** image, char * filename)"
+
+.PP
+Charge une image PNM depuis un fichier\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP l'adresse d'un pointeur sur PNM à laquelle écrire l'adresse de l'image chargée\&. 
+.br
+\fIfilename\fP le chemin vers le fichier contenant l'image\&.
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL, filename != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: image pointe vers l'image chargée depuis le fichier\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès -1 Erreur à l'allocation de mémoire -2 Nom du fichier malformé -3 Contenu du fichier malformé 
+.RE
+.PP
+
+.SS "int manage_comments (FILE * fp)"
+
+.PP
+Permet de gérer une ligne pour savoir si on doit l'ignorer (celles commençant par '#') 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfp\fP un pointeur sur FILE *
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: fp != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: la ligne est correctement ignorée
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès -1 Echec 
+.RE
+.PP
+
+.SS "\fBPNM\fP* set_columns (\fBPNM\fP * image, int columns)"
+
+.PP
+Accesseur en écriture pour le champ columns de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fIcolumns\fP nombre de pixels de hauteur
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en écriture au champ columns de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "\fBPNM\fP* set_magicNumber (\fBPNM\fP * image, int magicNumber)"
+
+.PP
+Accesseur en écriture pour le champ magicNumber de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fImagicNumber\fP nombre qui caractérise le type de fichier (1 pour pbm, 2 pour pgm, 3 pour ppm)
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en écriture au champ magicNumber de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "\fBPNM\fP* set_matrix (\fBPNM\fP * image, int ** matrix)"
+
+.PP
+Accesseur en écriture pour le champ matrix de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fImatrix\fP matrice contenant la valeur de chaque pixel de l'image
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en écriture au champ matrix de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "\fBPNM\fP* set_maxValuePixel (\fBPNM\fP * image, int maxValuePixel)"
+
+.PP
+Accesseur en écriture pour le champ maxValuePixel de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fImaxValuePixel\fP valeur maximale que peut prendre un pixel
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en écriture au champ maxValuePixel de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "\fBPNM\fP* set_rows (\fBPNM\fP * image, int rows)"
+
+.PP
+Accesseur en écriture pour le champ rows de *image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fIrows\fP nombre de pixels de largeur
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: accès en écriture au champ rows de *image
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès NULL Erreur lors de l'allocation dynamique 
+.RE
+.PP
+
+.SS "int write_matrix (\fBPNM\fP * image, FILE * fp)"
+
+.PP
+Ecriture de la matrice de *image dans un fichier\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage\fP un pointeur sur PNM 
+.br
+\fIfp\fP un pointeur sur FILE
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+: image != NULL, fp != NULL 
+.RE
+.PP
+\fBPostcondition\fP
+.RS 4
+: matrice
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+: 0 Succès -2 la matrice n'a pas pu être sauvée dans le fichier 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Projet 1 from the source code\&.

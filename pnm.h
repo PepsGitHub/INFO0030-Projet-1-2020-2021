@@ -10,23 +10,28 @@
  */
 
 /*
- * Include guard (pour éviter les problèmes d'inclusions multiplies
+ * Include guard (pour éviter les problèmes d'inclusions multiples
  * Bonne pratique: toujours encadrer un header avec un include guard
  */
 #ifndef __PNM__
 #define __PNM__
 
 /**
+ * \file pnm.h
+ * \brief Librairie pour gérer les fichiers d'extension pnm (.pbm, .pgm, .ppm)
+ * \author Peissone Dumoulin - Université de Liège
+ * \version 1.0
+ * \date 22/02/2021
+ * 
  * Déclaration du type opaque PNM
  *
  */
 typedef struct PNM_t PNM;
 
 /**
- * load_pnm
- *
- * Charge une image PNM depuis un fichier.
- *
+ * \fn int load_pnm(PNM **image, char* filename)
+ * \brief Charge une image PNM depuis un fichier
+ * 
  * @param image l'adresse d'un pointeur sur PNM à laquelle écrire l'adresse
  *              de l'image chargée.
  * @param filename le chemin vers le fichier contenant l'image.
@@ -44,10 +49,9 @@ typedef struct PNM_t PNM;
 int load_pnm(PNM **image, char* filename);
 
 /**
- * write_pnm
- *
- * Sauvegarde une image PNM dans un fichier.
- *
+ * \fn int write_pnm(PNM *image, char* filename)
+ * \brief Sauvegarde une image PNM dans un fichier.
+ * 
  * @param image un pointeur sur PNM.
  * @param filename le chemin vers le fichier de destination.
  *
@@ -62,10 +66,9 @@ int load_pnm(PNM **image, char* filename);
  */
 int write_pnm(PNM *image, char* filename);
 
-/*
- * *create_pnm
- * 
- * Crée et alloue dynamiquement une variable de type opaque PNM*
+/**
+ * \fn PNM *create_pnm(void)
+ * \brief Crée et alloue dynamiquement une variable de type opaque PNM*
  * 
  * @param magicNumber l'entier représentant la chaîne de caractère initiale 
  *        (1 pour "P1", 2 pour "P2" et 3 pour "P3")
@@ -82,11 +85,9 @@ int write_pnm(PNM *image, char* filename);
  */
 PNM *create_pnm(void);
 
-/*
- * destroy_pnm
- * 
- * Libère la mémoire allouée par *create_pnm
- * 
+/**
+ * \fn void destroy_pnm(PNM *image)
+ * \brief Libère la mémoire allouée par *create_pnm
  * @param image un pointeur sur PNM
  * 
  * @pre: image != NULL
@@ -99,15 +100,14 @@ PNM *create_pnm(void);
 
 void destroy_pnm(PNM *image);
 
-/*
- * get_...
- * 
- * accesseurs en lecture
+/**
+ * \fn int get_magicNumber(PNM *image)
+ * \brief Accesseur en lecture pour le champ magicNumber de image*
  * 
  * @param image un pointeur sur PNM
  * 
  * @pre: image != NULL
- * @post: champ de la structure associé à la fonction
+ * @post: accès en lecture au champ magicNumber de *image
  * 
  * @return:
  *    0 Succès
@@ -116,24 +116,80 @@ void destroy_pnm(PNM *image);
 
 int get_magicNumber(PNM *image);
 
+/**
+ * \fn int get_columns(PNM *image)
+ * \brief Accesseur en lecture pour le champ columns de image*
+ * 
+ * @param image un pointeur sur PNM
+ * 
+ * @pre: image != NULL
+ * @post: accès en lecture au champ columns de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
+
 int get_columns(PNM *image);
+
+/**
+ * \fn int get_rows(PNM *image)
+ * \brief Accesseur en lecture pour le champ rows de image*
+ * 
+ * @param image un pointeur sur PNM
+ * 
+ * @pre: image != NULL
+ * @post: accès en lecture au champ rows de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
 
 int get_rows(PNM *image);
 
+/**
+ * \fn int get_maxValuePixel(PNM *image)
+ * \brief Accesseur en lecture pour le champ maxValuePixel de image*
+ * 
+ * @param image un pointeur sur PNM
+ * 
+ * @pre: image != NULL
+ * @post: accès en lecture au champ maxValuePixel de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
+
 int get_maxValuePixel(PNM *image);
+
+/**
+ * \fn int **get_matrix(PNM *image)
+ * \brief Accesseur en lecture pour le champ matrix de image*
+ * 
+ * @param image un pointeur sur PNM
+ * 
+ * @pre: image != NULL
+ * @post: accès en lecture au champ matrix de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
 
 int **get_matrix(PNM *image);
 
-/*
- * set_...
- * 
- * accesseurs en écriture
+/**
+ * \fn PNM *set_magicNumber(PNM *image, int magicNumber)
+ * \brief Accesseur en écriture pour le champ magicNumber de *image
  * 
  * @param image un pointeur sur PNM
- * @param ... champ de la structure associé à la fonction
+ * @param magicNumber nombre qui caractérise le type de fichier
+                      (1 pour pbm, 2 pour pgm, 3 pour ppm)
  * 
  * @pre: image != NULL
- * @post: *image correctement retourné
+ * @post: accès en écriture au champ magicNumber de *image
  * 
  * @return:
  *    0 Succès
@@ -142,18 +198,77 @@ int **get_matrix(PNM *image);
 
 PNM *set_magicNumber(PNM *image, int magicNumber);
 
+/**
+ * \fn PNM *set_columns(PNM *image, int columns)
+ * \brief Accesseur en écriture pour le champ columns de *image
+ * 
+ * @param image un pointeur sur PNM
+ * @param columns nombre de pixels de hauteur
+ * 
+ * @pre: image != NULL
+ * @post: accès en écriture au champ columns de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
+
 PNM *set_columns(PNM *image, int columns);
+
+/**
+ * \fn PNM *set_rows(PNM *image, int rows)
+ * \brief Accesseur en écriture pour le champ rows de *image
+ * 
+ * @param image un pointeur sur PNM
+ * @param rows nombre de pixels de largeur
+ * 
+ * @pre: image != NULL
+ * @post: accès en écriture au champ rows de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
 
 PNM *set_rows(PNM *image, int rows);
 
+/**
+ * \fn PNM *set_maxValuePixel(PNM *image, int maxValuePixel)
+ * \brief Accesseur en écriture pour le champ maxValuePixel de *image
+ * 
+ * @param image un pointeur sur PNM
+ * @param maxValuePixel valeur maximale que peut prendre un pixel
+ * 
+ * @pre: image != NULL
+ * @post: accès en écriture au champ maxValuePixel de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
+
 PNM *set_maxValuePixel(PNM *image, int maxValuePixel);
+
+/**
+ * \fn PNM *set_matrix(PNM *image, int **matrix)
+ * \brief Accesseur en écriture pour le champ matrix de *image
+ * 
+ * @param image un pointeur sur PNM
+ * @param matrix matrice contenant la valeur de chaque pixel de l'image
+ * 
+ * @pre: image != NULL
+ * @post: accès en écriture au champ matrix de *image
+ * 
+ * @return:
+ *    0 Succès
+ *    NULL Erreur lors de l'allocation dynamique
+ */
 
 PNM *set_matrix(PNM *image, int **matrix);
 
-/*
- * **create_matrix
- * 
- * Crée et alloue dynamiquement la matrice de *image
+/**
+ * \fn int **create_matrix(PNM *image)
+ * \brief Crée et alloue dynamiquement la matrice de *image
  * 
  * @param image un pointeur sur PNM
  * 
@@ -167,10 +282,9 @@ PNM *set_matrix(PNM *image, int **matrix);
 
 int **create_matrix(PNM *image);
 
-/*
- * fill_matrix
- * 
- * Lecture dans un fichier et remplissage de la matrice de *image
+/**
+ * \fn int load_matrix(PNM *image, FILE *fp)
+ * \brief Lecture dans un fichier et remplissage de la matrice de *image
  * 
  * @param image un pointeur sur PNM
  * @param fp un pointeur sur FILE
@@ -185,10 +299,9 @@ int **create_matrix(PNM *image);
 
 int load_matrix(PNM *image, FILE *fp);
 
-/*
- * write_matrix
- * 
- * Ecriture de la matrice de *image dans un fichier
+/**
+ * \fn int write_matrix(PNM *image, FILE *fp)
+ * \brief Ecriture de la matrice de *image dans un fichier
  * 
  * @param image un pointeur sur PNM
  * @param fp un pointeur sur FILE
@@ -203,10 +316,9 @@ int load_matrix(PNM *image, FILE *fp);
 
 int write_matrix(PNM *image, FILE *fp);
 
-/*
- * destroy_matrix_rows
- * 
- * Libère la mémoire allouée par **create_matrix
+/**
+ * \fn void destroy_matrix_rows(PNM *image)
+ * \brief Libère la mémoire allouée par **create_matrix
  * 
  * @param image un pointeur sur PNM
  * 
@@ -220,10 +332,9 @@ int write_matrix(PNM *image, FILE *fp);
 
 void destroy_matrix_rows(PNM *image);
 
-/*
- * destroy_matrix_columns
- * 
- * Libère la mémoire allouée par **create_matrix
+/**
+ * \fn void destroy_matrix_columns(PNM *image)
+ * \brief Libère la mémoire allouée par **create_matrix
  * 
  * @param image un pointeur sur PNM
  * 
@@ -237,11 +348,10 @@ void destroy_matrix_rows(PNM *image);
 
 void destroy_matrix_columns(PNM *image);
 
-/*
- * manage_comments
- * 
- * Permet de gérer une ligne pour savoir si on doit l'ignorer (celles commençant par '#')
- * 
+/**
+ * \fn int manage_comments(FILE *fp)
+ * \brief Permet de gérer une ligne pour savoir si on doit l'ignorer 
+ *        (celles commençant par '#')
  * @param fp un pointeur sur FILE *
  * 
  * @pre: fp != NULL
