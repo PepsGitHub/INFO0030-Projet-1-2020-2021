@@ -22,40 +22,11 @@
 
 int main(int argc, char *argv[]) {
 
-   char *optstring = ":f:i:o:";
-   int val;
-   char *format, *input, *output;
+   char *format = NULL, *input = NULL, *output = NULL;
    PNM *imageTest = create_pnm();
 
-   //options courtes
-   while((val=getopt(argc, argv, optstring))!=EOF){
-      switch (val){
-      case 'f':
-         format = optarg;
-         printf("format: %s\n", format);
-         break;
-      case 'i':
-         input = optarg;
-         printf("input: %s\n", input);
-         break;
-      case 'o':
-         output = optarg;
-         printf("output: %s\n", output);
-         break;
-      case '?':
-         printf("unknown option: %c\n", optopt);
-         return -1;
-      case ':':
-         printf("missing arg: %c\n", optopt);
-         return -1;
-      }
-   }
-
-   //erreur en cas de format inconnu
-   while(strcmp(format, "PBM") != 0 && strcmp(format, "PGM") != 0 && strcmp(format, "PPM") != 0){
-      printf("Incapable de lire ce type de format: %s. Veuillez réessayer:\n", format);
-      scanf("%s", format);
-   }
+   //appel de short_options pour la gestion des arguments lors de l'exécution du programme
+   short_options(argc, argv, &format, &input, &output);
    
    //appel de load_pnm et checking des valeurs de retour
    switch(load_pnm(&imageTest, input)){
@@ -78,35 +49,11 @@ int main(int argc, char *argv[]) {
    }
 
    //permet de gérer les erreurs entre le format du fichier et le format tous deux passés en argument
-   switch (get_magicNumber(imageTest)){
-   case 1:
-      if(strcmp(format, "PBM") != 0){
-         printf("Mauvais format passé en argument. Le fichier %s est du type PBM et non %s\n", input, format);
-         destroy_matrix_columns(imageTest);
-         destroy_matrix_rows(imageTest);
-         destroy_pnm(imageTest);
-         return -1;
-      }
-      break;
-   case 2:
-      if(strcmp(format, "PGM") != 0){
-         printf("Mauvais format passé en argument. Le fichier %s est du type PGM et non %s\n", input, format);
-         destroy_matrix_columns(imageTest);
-         destroy_matrix_rows(imageTest);
-         destroy_pnm(imageTest);
-         return -1;
-      }
-      break;
-   case 3:
-      if(strcmp(format, "PPM") != 0){
-         printf("Mauvais format passé en argument. Le fichier %s est du type PPM et non %s\n", input, format);
-         destroy_matrix_columns(imageTest);
-         destroy_matrix_rows(imageTest);
-         destroy_pnm(imageTest);
-         return -1;
-      }
-      break;
-   }
+   if(manage_format_input(imageTest, format, input) == -1)
+      return -1;
+
+   if(verify_filename_output(imageTest, output) == -1)
+      return -1;
 
    //appel de write_pnm et checking des valeurs de retour
    switch(write_pnm(imageTest, output)){

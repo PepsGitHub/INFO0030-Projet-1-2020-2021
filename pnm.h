@@ -351,7 +351,12 @@ void destroy_matrix_columns(PNM *image);
 
 int manage_comments(FILE *fp);
 
-//int verify_filename(PNM *image, char *filename);
+int short_options(int argc, char **argv, char **format, 
+                  char **input, char **output);
+
+int manage_format_input(PNM *image, char *format, char *input);
+
+int verify_filename_output(PNM *image, char *output);
 
 #endif // __PNM__
 
