@@ -72,15 +72,15 @@ int write_pnm(PNM *image, char* filename);
  * 
  * @param magicNumber l'entier représentant la chaîne de caractère initiale 
  *        (1 pour "P1", 2 pour "P2" et 3 pour "P3")
- * @param columns le nombre de pixels "verticaux"
- * @param rows le nombre de pixels "horizontaux"
+ * @param columns le nombre de pixels de hauteur
+ * @param rows le nombre de pixels de largeur
  * @param maxValuePixel la valeur maximale que peut prendre un pixel
  * 
  * @pre: /
  * @post: *image alloué
  * 
  * @return:
- *    0 Succès
+ *    image Succès
  *    NULL Erreur lors de l'allocation dynamique
  */
 PNM *create_pnm(void);
@@ -94,8 +94,7 @@ PNM *create_pnm(void);
  * @post: *image libéré
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    /
  */
 
 void destroy_pnm(PNM *image);
@@ -110,8 +109,7 @@ void destroy_pnm(PNM *image);
  * @post: accès en lecture au champ magicNumber de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image->magicNumber Succès
  */
 
 int get_magicNumber(PNM *image);
@@ -126,8 +124,7 @@ int get_magicNumber(PNM *image);
  * @post: accès en lecture au champ columns de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image->columns Succès
  */
 
 int get_columns(PNM *image);
@@ -142,8 +139,7 @@ int get_columns(PNM *image);
  * @post: accès en lecture au champ rows de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image->rows Succès
  */
 
 int get_rows(PNM *image);
@@ -158,8 +154,7 @@ int get_rows(PNM *image);
  * @post: accès en lecture au champ maxValuePixel de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image->getMaxValuePixel Succès
  */
 
 int get_maxValuePixel(PNM *image);
@@ -174,8 +169,7 @@ int get_maxValuePixel(PNM *image);
  * @post: accès en lecture au champ matrix de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image->matrix Succès
  */
 
 int **get_matrix(PNM *image);
@@ -192,8 +186,7 @@ int **get_matrix(PNM *image);
  * @post: accès en écriture au champ magicNumber de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image Succès
  */
 
 PNM *set_magicNumber(PNM *image, int magicNumber);
@@ -209,8 +202,7 @@ PNM *set_magicNumber(PNM *image, int magicNumber);
  * @post: accès en écriture au champ columns de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image Succès
  */
 
 PNM *set_columns(PNM *image, int columns);
@@ -226,8 +218,7 @@ PNM *set_columns(PNM *image, int columns);
  * @post: accès en écriture au champ rows de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image Succès
  */
 
 PNM *set_rows(PNM *image, int rows);
@@ -243,8 +234,7 @@ PNM *set_rows(PNM *image, int rows);
  * @post: accès en écriture au champ maxValuePixel de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image Succès
  */
 
 PNM *set_maxValuePixel(PNM *image, int maxValuePixel);
@@ -260,8 +250,7 @@ PNM *set_maxValuePixel(PNM *image, int maxValuePixel);
  * @post: accès en écriture au champ matrix de *image
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    image Succès
  */
 
 PNM *set_matrix(PNM *image, int **matrix);
@@ -276,7 +265,7 @@ PNM *set_matrix(PNM *image, int **matrix);
  * @post: matrice allouée
  * 
  * @return:
- *    0 Succès
+ *    image->matrix Succès
  *    NULL Erreur lors de l'allocation dynamique
  */
 
@@ -294,7 +283,7 @@ int **create_matrix(PNM *image);
  * 
  * @return:
  *    0 Succès
- *    -3 Contenu du fichier en input mal formé
+ *    -3 Le contenu du fichier en input est mal formé (magicNumber)
  */
 
 int load_matrix(PNM *image, FILE *fp);
@@ -311,7 +300,7 @@ int load_matrix(PNM *image, FILE *fp);
  * 
  * @return:
  *    0 Succès
- *    -2 la matrice n'a pas pu être sauvée dans le fichier
+ *    -2 La matrice n'a pas pu être écrite dans le fichier
  */
 
 int write_matrix(PNM *image, FILE *fp);
@@ -326,8 +315,7 @@ int write_matrix(PNM *image, FILE *fp);
  * @post: la matrice ligne est libérée
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    /
  */
 
 void destroy_matrix_rows(PNM *image);
@@ -342,8 +330,7 @@ void destroy_matrix_rows(PNM *image);
  * @post: la matrice colonne est libérée
  * 
  * @return:
- *    0 Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    /
  */
 
 void destroy_matrix_columns(PNM *image);
@@ -352,7 +339,7 @@ void destroy_matrix_columns(PNM *image);
  * \fn int manage_comments(FILE *fp)
  * \brief Permet de gérer une ligne pour savoir si on doit l'ignorer 
  *        (celles commençant par '#')
- * @param fp un pointeur sur FILE *
+ * @param fp un pointeur sur FILE
  * 
  * @pre: fp != NULL
  * @post: la ligne est correctement ignorée
