@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write_5fmatrix_21',['write_matrix',['../pnm_8h.html#aab3a3cf34a6d5b49dfcd9e6a72b33e26',1,'pnm.c']]]
+  ['verify_5foutput_24',['verify_output',['../pnm_8h.html#abd595448dd589ec1453651197c8dc0bb',1,'pnm.c']]]
 ];

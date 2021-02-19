@@ -5,7 +5,7 @@
  * de fichiers pnm.
  *
  * @author: Dumoulin Peissone S193957
- * @date: 22/02/21
+ * @date: 19/02/21
  * @projet: INFO0030 Projet 1
  */
 
@@ -25,16 +25,18 @@ int main(int argc, char *argv[]) {
    char *format = NULL, *input = NULL, *output = NULL;
    PNM *imageTest = create_pnm();
 
-   //appel de short_options pour la gestion des arguments lors de l'exécution du programme
+   //appel de short_options pour gérer les arguments lors de l'exec du prog
    short_options(argc, argv, &format, &input, &output);
    
    //appel de load_pnm et checking des valeurs de retour
    switch(load_pnm(&imageTest, input)){
       case 0:
-         printf("Tout s'est bien passé et l'image est correctement chargée en mémoire dans *image\n");
+         printf("Tout s'est bien passé et l'image est ");
+         printf("correctement chargée en mémoire dans *image\n");
          break;
       case -1:
-         printf("Il est impossible d'allouer suffisamment de mémoire pour l'image\n");
+         printf("Il est impossible d'allouer suffisamment ");
+         printf("de mémoire pour l'image\n");
          return 0;
       case -2:
          printf("Le nom du fichier en input est mal formé\n");
@@ -48,20 +50,23 @@ int main(int argc, char *argv[]) {
          return 0;
    }
 
-   //permet de gérer les erreurs entre le format du fichier et le format tous deux passés en argument
+   //permet de gérer les erreurs entre le format du fichier et le format
    if(manage_format_input(imageTest, format, input) == -1)
       return -1;
 
-   if(verify_filename_output(imageTest, output) == -1)
+   //permet de gérer les caractères interdits dans l'output
+   if(verify_output(imageTest, output) == -1)
       return -1;
 
    //appel de write_pnm et checking des valeurs de retour
    switch(write_pnm(imageTest, output)){
       case 0:
-         printf("Tout s'est bien passé et l'image a pu être correctement sauvée dans un fichier\n");
+         printf("Tout s'est bien passé et l'image a pu être correctement ");
+         printf("sauvée dans un fichier\n");
          break;
       case -1:
-         printf("Le nom du fichier output passé en argument n'est pas valide\n");
+         printf("Le nom du fichier output passé en argument ");
+         printf("n'est pas valide\n");
          return 0;
       case -2:
          printf("L'image n'a pas pu être sauvée dans un fichier\n");
@@ -72,9 +77,7 @@ int main(int argc, char *argv[]) {
    }
 
    //libération de la mémoire
-   destroy_matrix_columns(imageTest);
-   destroy_matrix_rows(imageTest);
-   destroy_pnm(imageTest);
+   destroy_all(imageTest);
    
    return 0;
 }

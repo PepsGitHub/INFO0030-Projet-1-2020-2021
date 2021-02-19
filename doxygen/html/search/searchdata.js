@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "cdglmpsw",
+  0: "cdglmpsvw",
   1: "p",
   2: "p",
-  3: "cdglmsw",
+  3: "cdglmsvw",
   4: "p"
 };
 

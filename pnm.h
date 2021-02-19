@@ -21,7 +21,7 @@
  * \brief Librairie pour gérer les fichiers d'extension pnm (.pbm, .pgm, .ppm)
  * \author Peissone Dumoulin - Université de Liège
  * \version 1.0
- * \date 22/02/2021
+ * \date 19/02/2021
  * 
  * Déclaration du type opaque PNM
  *
@@ -64,17 +64,14 @@ int load_pnm(PNM **image, char* filename);
  *    -2 Erreur lors de la manipulation du fichier
  *
  */
+
 int write_pnm(PNM *image, char* filename);
 
 /**
  * \fn PNM *create_pnm(void)
  * \brief Crée et alloue dynamiquement une variable de type opaque PNM*
  * 
- * @param magicNumber l'entier représentant la chaîne de caractère initiale 
- *        (1 pour "P1", 2 pour "P2" et 3 pour "P3")
- * @param columns le nombre de pixels de hauteur
- * @param rows le nombre de pixels de largeur
- * @param maxValuePixel la valeur maximale que peut prendre un pixel
+ * @param /
  * 
  * @pre: /
  * @post: *image alloué
@@ -83,6 +80,7 @@ int write_pnm(PNM *image, char* filename);
  *    image Succès
  *    NULL Erreur lors de l'allocation dynamique
  */
+
 PNM *create_pnm(void);
 
 /**
@@ -336,6 +334,20 @@ void destroy_matrix_rows(PNM *image);
 void destroy_matrix_columns(PNM *image);
 
 /**
+ * \fn void destroy_all(PNM *image)
+ * \brief Libère toute la mémoire allouée
+ * @param image un pointeur sur PNM
+ * 
+ * @pre: image != NULL
+ * @post: la matrice colonne, la matrice ligne ainsi que *image sont libérés
+ * 
+ * @return:
+ *    /
+ */
+
+void destroy_all(PNM *image);
+
+/**
  * \fn int manage_comments(FILE *fp)
  * \brief Permet de gérer une ligne pour savoir si on doit l'ignorer 
  *        (celles commençant par '#')
@@ -351,12 +363,63 @@ void destroy_matrix_columns(PNM *image);
 
 int manage_comments(FILE *fp);
 
+/**
+ * \fn int short_options(int argc, char **argv, char **format,
+                         char **input, char **output)
+ * \brief Gère les options courtes passées en argument du programme
+ * 
+ * @param argc le nombre d'arguments
+ * @param argv un tableau d'arguments
+ * @param format le format du fichier
+ * @param input le nom du fichier en entrée
+ * @param output le nom du fichier en sortie
+ * 
+ * @pre: argv != NULL
+ * @post: options courtes gérées correctement
+ * 
+ * @return:
+ *    0 Succès
+ *    -1 Option inconnue
+ *    -2 Argument manquant
+ */
+
 int short_options(int argc, char **argv, char **format, 
                   char **input, char **output);
 
+/**
+ * \fn int manage_format_input(PNM *image, char *format, char *input)
+ * \brief Gère si le format correspond au format de l'input
+ * 
+ * @param image un pointeur sur PNM
+ * @param format le format du fichier
+ * @param input le nom du fichier en entrée
+ * 
+ * @pre: image != NULL, format != NULL, input != NULL
+ * @post: format du fichier géré correctement
+ * 
+ * @return:
+ *    0 Succès
+ *    -1 Mauvais format passé en argument
+ */
+
 int manage_format_input(PNM *image, char *format, char *input);
 
-int verify_filename_output(PNM *image, char *output);
+/**
+ * \fn int verify_output(PNM *image, char *output)
+ * \brief Vérifie si l'output contient des caractères spéciaux interdits
+ * 
+ * @param image un pointeur sur PNM
+ * @param output le nom du fichier en sortie
+ * 
+ * @pre: image != NULL, output != NULL
+ * @post: format du fichier géré correctement
+ * 
+ * @return:
+ *    0 Succès
+ *    -1 Caractère invalide dans le nom du fichier
+ */
+
+int verify_output(PNM *image, char *output);
 
 #endif // __PNM__
 

@@ -5,7 +5,7 @@
  * les fonctions de manipulation d'images PNM.
  * 
  * @author: Dumoulin Peissone S193957
- * @date: 22/02/21
+ * @date: 19/02/21
  * @projet: INFO0030 Projet 1
  */
 
@@ -188,9 +188,7 @@ int load_matrix(PNM *image, FILE *fp){
       break;
    default:
       printf("Le contenu du fichier en input est mal formé (magicNumber)");
-      destroy_matrix_columns(image);
-      destroy_matrix_rows(image);
-      destroy_pnm(image);
+      destroy_all(image);
       return -3;
    }
    return 0;
@@ -229,9 +227,7 @@ int write_matrix(PNM *image, FILE *fp){
       break;
    default :
       printf("L'image n'a pas pu être sauvée dans un fichier (magicNumber)");
-      destroy_matrix_columns(image);
-      destroy_matrix_rows(image);
-      destroy_pnm(image);
+      destroy_all(image);
       return -2;
    }
    return 0;
@@ -252,6 +248,14 @@ void destroy_matrix_columns(PNM *image){
       free(image->matrix[i]);
 }//fin destroy_matrix_i
 
+void destroy_all(PNM *image){
+   assert(image != NULL);
+
+   destroy_matrix_columns(image);
+   destroy_matrix_rows(image);
+   destroy_pnm(image);
+}
+
 //debut short_options
 int short_options(int argc, char **argv, char **format, 
                   char **input, char **output){
@@ -267,12 +271,6 @@ int short_options(int argc, char **argv, char **format,
          break;
       case 'i':
          *input = optarg;
-         /*for(int i=0; *input[i] != '\0';i++){
-            if(*input[i] == '/'){
-               for(int j=0; j<i; j++)
-                  *input[j]=*input[j+1];
-            }
-         }//transformer chemin absolu en chemin relatif et le remplacer dans input*/
          printf("input: %s\n", *input);
          break;
       case 'o':
@@ -284,7 +282,7 @@ int short_options(int argc, char **argv, char **format,
          return -1;
       case ':':
          printf("argument manquant: %c\n", optopt);
-         return -1;
+         return -2;
       }
    }
 
@@ -294,31 +292,30 @@ int short_options(int argc, char **argv, char **format,
 
 //debut manage_format_input
 int manage_format_input(PNM *image, char *format, char *input){
+   assert(image != NULL && format != NULL && input != NULL);
+
    switch (get_magicNumber(image)){
    case 1:
       if(strcmp(format, "PBM") != 0){
-         printf("Mauvais format passé en argument. Le fichier %s est du type PBM et non %s\n", input, format);
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
+         printf("Mauvais format passé en argument. ");
+         printf("Le fichier %s est du type PBM et non %s\n", input, format);
+         destroy_all(image);
          return -1;
       }
       break;
    case 2:
       if(strcmp(format, "PGM") != 0){
-         printf("Mauvais format passé en argument. Le fichier %s est du type PGM et non %s\n", input, format);
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
+         printf("Mauvais format passé en argument. ");
+         printf("Le fichier %s est du type PGM et non %s\n", input, format);
+         destroy_all(image);
          return -1;
       }
       break;
    case 3:
       if(strcmp(format, "PPM") != 0){
-         printf("Mauvais format passé en argument. Le fichier %s est du type PPM et non %s\n", input, format);
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
+         printf("Mauvais format passé en argument. ");
+         printf("Le fichier %s est du type PPM et non %s\n", input, format);
+         destroy_all(image);
          return -1;
       }
       break;
@@ -332,76 +329,19 @@ int manage_format_input(PNM *image, char *format, char *input){
 //fin manage_format_input
 
 //debut verify_filename_output
-int verify_filename_output(PNM *image, char *output){
+int verify_output(PNM *image, char *output){
    assert(image != NULL && output != NULL);
 
+   char *invalidCharacter = "/\\:*?\"<>|";
+
    for(int i=0; output[i] != '\0';i++){
-      switch (output[i]){
-      /*case '/':
-         printf("Caractère invalide dans le nom du fichier /\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;*/
-      case '\\':
-         printf("Caractère invalide dans le nom du fichier (backslash)\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case ':':
-         printf("Caractère invalide dans le nom du fichier :\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case '*':
-         printf("Caractère invalide dans le nom du fichier *\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case '?':
-         printf("Caractère invalide dans le nom du fichier ?\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case '"':
-         printf("Caractère invalide dans le nom du fichier (double quotes)\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case '<':
-         printf("Caractère invalide dans le nom du fichier <\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case '>':
-         printf("Caractère invalide dans le nom du fichier >\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      case '|':
-         printf("Caractère invalide dans le nom du fichier |\n");
-         destroy_matrix_columns(image);
-         destroy_matrix_rows(image);
-         destroy_pnm(image);
-         return -1;
-         break;
-      default:
-         break;
+      for(int j=0; invalidCharacter[j] != '\0'; j++){
+         if(output[i]==invalidCharacter[j]){
+            printf("Caractère invalide dans le nom du fichier: '%c'\n",
+                   output[i]);
+            destroy_all(image);
+            return -1;
+         }
       }
    }
    return 0;
@@ -507,7 +447,7 @@ int write_pnm(PNM *image, char* filename) {
    if(!fp)
       return -1;
 
-   fprintf(fp, "%s\n%d %d\n", magicNumber, get_columns(image), get_rows(image));
+   fprintf(fp,"%s\n%d %d\n", magicNumber, get_columns(image), get_rows(image));
 
    write_matrix(image, fp);
 
