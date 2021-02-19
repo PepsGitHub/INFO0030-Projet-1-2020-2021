@@ -187,7 +187,7 @@ int load_matrix(PNM *image, FILE *fp){
       }
       break;
    default:
-      printf("Le contenu du fichier en input est mal formé (magicNumber)");
+      printf("Le contenu du fichier en input est mal formé (magicNumber)\n");
       destroy_all(image);
       return -3;
    }
@@ -392,7 +392,7 @@ int load_pnm(PNM **image, char* filename){
       set_magicNumber(*image, 3);
       manage_comments(fp);
    }else{
-      printf("Le contenu du fichier en input est mal formé (magicNumber)\n");
+      destroy_pnm(*image);
       fclose(fp);
       return -3;
    }
