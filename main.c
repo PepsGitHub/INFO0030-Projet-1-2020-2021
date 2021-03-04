@@ -23,13 +23,35 @@
 int main(int argc, char *argv[]) {
 
    char *format = NULL, *input = NULL, *output = NULL;
-   PNM *imageTest = create_pnm();
+   PNM *image;
 
-   //appel de short_options pour gérer les arguments lors de l'exec du prog
-   short_options(argc, argv, &format, &input, &output);
+   char *optstring = ":f:i:o:";
+   int val;
+   while((val=getopt(argc, argv, optstring))!=EOF){
+      switch (val){
+      case 'f':
+         format = optarg;
+         printf("format: %s\n", format);
+         break;
+      case 'i':
+         input = optarg;
+         printf("input: %s\n", input);
+         break;
+      case 'o':
+         output = optarg;
+         printf("output: %s\n", output);
+         break;
+      case '?':
+         printf("option inconnue: %c\n", optopt);
+         return -1;
+      case ':':
+         printf("argument manquant: %c\n", optopt);
+         return -2;
+      }
+   }
    
    //appel de load_pnm et checking des valeurs de retour
-   switch(load_pnm(&imageTest, input)){
+   switch(load_pnm(&image, input)){
       case 0:
          printf("Tout s'est bien passé et l'image est ");
          printf("correctement chargée en mémoire dans *image\n");
@@ -40,7 +62,7 @@ int main(int argc, char *argv[]) {
          return 0;
       case -2:
          printf("Le nom du fichier en input est mal formé\n");
-         destroy_pnm(imageTest);
+         destroy(image, 3);
          return 0;
       case -3:
          printf("Le contenu du fichier en input est mal formé\n");
@@ -51,15 +73,14 @@ int main(int argc, char *argv[]) {
    }
 
    //permet de gérer les erreurs entre le format du fichier et le format
-   if(manage_format_input(imageTest, format, input) == -1)
+   if(manage_format_input(image, format, input))
       return -1;
-
    //permet de gérer les caractères interdits dans l'output
-   if(verify_output(imageTest, output) == -1)
+   if(verify_output(image, output))
       return -1;
 
    //appel de write_pnm et checking des valeurs de retour
-   switch(write_pnm(imageTest, output)){
+   switch(write_pnm(image, output)){
       case 0:
          printf("Tout s'est bien passé et l'image a pu être correctement ");
          printf("sauvée dans un fichier\n");
@@ -77,7 +98,8 @@ int main(int argc, char *argv[]) {
    }
 
    //libération de la mémoire
-   destroy_all(imageTest);
+   
+   destroy(image, 3);
    
    return 0;
 }

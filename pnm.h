@@ -84,21 +84,7 @@ int write_pnm(PNM *image, char* filename);
 PNM *create_pnm(void);
 
 /**
- * \fn void destroy_pnm(PNM *image)
- * \brief Libère la mémoire allouée par *create_pnm
- * @param image un pointeur sur PNM
- * 
- * @pre: image != NULL
- * @post: *image libéré
- * 
- * @return:
- *    /
- */
-
-void destroy_pnm(PNM *image);
-
-/**
- * \fn int get_magicNumber(PNM *image)
+ * \fn char *get_magicNumber(PNM *image)
  * \brief Accesseur en lecture pour le champ magicNumber de image*
  * 
  * @param image un pointeur sur PNM
@@ -110,7 +96,7 @@ void destroy_pnm(PNM *image);
  *    image->magicNumber Succès
  */
 
-int get_magicNumber(PNM *image);
+char *get_magicNumber(PNM *image);
 
 /**
  * \fn int get_columns(PNM *image)
@@ -125,7 +111,7 @@ int get_magicNumber(PNM *image);
  *    image->columns Succès
  */
 
-int get_columns(PNM *image);
+unsigned short get_columns(PNM *image);
 
 /**
  * \fn int get_rows(PNM *image)
@@ -140,7 +126,7 @@ int get_columns(PNM *image);
  *    image->rows Succès
  */
 
-int get_rows(PNM *image);
+unsigned short get_rows(PNM *image);
 
 /**
  * \fn int get_maxValuePixel(PNM *image)
@@ -155,7 +141,7 @@ int get_rows(PNM *image);
  *    image->getMaxValuePixel Succès
  */
 
-int get_maxValuePixel(PNM *image);
+unsigned short get_maxValuePixel(PNM *image);
 
 /**
  * \fn int **get_matrix(PNM *image)
@@ -170,15 +156,15 @@ int get_maxValuePixel(PNM *image);
  *    image->matrix Succès
  */
 
-int **get_matrix(PNM *image);
+unsigned short **get_matrix(PNM *image);
 
 /**
  * \fn PNM *set_magicNumber(PNM *image, int magicNumber)
  * \brief Accesseur en écriture pour le champ magicNumber de *image
  * 
  * @param image un pointeur sur PNM
- * @param magicNumber nombre qui caractérise le type de fichier
-                      (1 pour pbm, 2 pour pgm, 3 pour ppm)
+ * @param magicNumber nombre magique qui caractérise le type de fichier
+                      ("P1"" pour pbm, "P2" pour pgm, "P3" pour ppm)
  * 
  * @pre: image != NULL
  * @post: accès en écriture au champ magicNumber de *image
@@ -187,7 +173,7 @@ int **get_matrix(PNM *image);
  *    image Succès
  */
 
-PNM *set_magicNumber(PNM *image, int magicNumber);
+PNM *set_magicNumber(PNM *image, char *magicNumber);
 
 /**
  * \fn PNM *set_columns(PNM *image, int columns)
@@ -203,7 +189,7 @@ PNM *set_magicNumber(PNM *image, int magicNumber);
  *    image Succès
  */
 
-PNM *set_columns(PNM *image, int columns);
+PNM *set_columns(PNM *image, unsigned short columns);
 
 /**
  * \fn PNM *set_rows(PNM *image, int rows)
@@ -219,7 +205,7 @@ PNM *set_columns(PNM *image, int columns);
  *    image Succès
  */
 
-PNM *set_rows(PNM *image, int rows);
+PNM *set_rows(PNM *image, unsigned short rows);
 
 /**
  * \fn PNM *set_maxValuePixel(PNM *image, int maxValuePixel)
@@ -235,7 +221,7 @@ PNM *set_rows(PNM *image, int rows);
  *    image Succès
  */
 
-PNM *set_maxValuePixel(PNM *image, int maxValuePixel);
+PNM *set_maxValuePixel(PNM *image, unsigned short maxValuePixel);
 
 /**
  * \fn PNM *set_matrix(PNM *image, int **matrix)
@@ -251,7 +237,7 @@ PNM *set_maxValuePixel(PNM *image, int maxValuePixel);
  *    image Succès
  */
 
-PNM *set_matrix(PNM *image, int **matrix);
+PNM *set_matrix(PNM *image, unsigned short **matrix);
 
 /**
  * \fn int **create_matrix(PNM *image)
@@ -267,7 +253,7 @@ PNM *set_matrix(PNM *image, int **matrix);
  *    NULL Erreur lors de l'allocation dynamique
  */
 
-int **create_matrix(PNM *image);
+unsigned short **create_matrix(PNM *image);
 
 /**
  * \fn int load_matrix(PNM *image, FILE *fp)
@@ -284,7 +270,7 @@ int **create_matrix(PNM *image);
  *    -3 Le contenu du fichier en input est mal formé (magicNumber)
  */
 
-int load_matrix(PNM *image, FILE *fp);
+unsigned short load_matrix(PNM *image, FILE *fp);
 
 /**
  * \fn int write_matrix(PNM *image, FILE *fp)
@@ -301,51 +287,22 @@ int load_matrix(PNM *image, FILE *fp);
  *    -2 La matrice n'a pas pu être écrite dans le fichier
  */
 
-int write_matrix(PNM *image, FILE *fp);
+unsigned short write_matrix(PNM *image, FILE *fp);
 
 /**
- * \fn void destroy_matrix_rows(PNM *image)
- * \brief Libère la mémoire allouée par **create_matrix
- * 
+ * \fn void destroy(PNM *image, unsigned short allocation_value)
+ * \brief Libère la mémoire en fonction de l'allocation
  * @param image un pointeur sur PNM
+ * @param allocation_value le nombre de couches d'allocations
  * 
- * @pre: image != NULL
- * @post: la matrice ligne est libérée
- * 
- * @return:
- *    /
- */
-
-void destroy_matrix_rows(PNM *image);
-
-/**
- * \fn void destroy_matrix_columns(PNM *image)
- * \brief Libère la mémoire allouée par **create_matrix
- * 
- * @param image un pointeur sur PNM
- * 
- * @pre: image != NULL
- * @post: la matrice colonne est libérée
- * 
- * @return:
- *    /
- */
-
-void destroy_matrix_columns(PNM *image);
-
-/**
- * \fn void destroy_all(PNM *image)
- * \brief Libère toute la mémoire allouée
- * @param image un pointeur sur PNM
- * 
- * @pre: image != NULL
+ * @pre: image != NULL, 0 < allocation_value < 4
  * @post: la matrice colonne, la matrice ligne ainsi que *image sont libérés
  * 
  * @return:
  *    /
  */
 
-void destroy_all(PNM *image);
+void destroy(PNM *image, unsigned short allocation_value);
 
 /**
  * \fn int manage_comments(FILE *fp)
@@ -362,29 +319,6 @@ void destroy_all(PNM *image);
  */
 
 int manage_comments(FILE *fp);
-
-/**
- * \fn int short_options(int argc, char **argv, char **format,
-                         char **input, char **output)
- * \brief Gère les options courtes passées en argument du programme
- * 
- * @param argc le nombre d'arguments
- * @param argv un tableau d'arguments
- * @param format le format du fichier
- * @param input le nom du fichier en entrée
- * @param output le nom du fichier en sortie
- * 
- * @pre: argv != NULL
- * @post: options courtes gérées correctement
- * 
- * @return:
- *    0 Succès
- *    -1 Option inconnue
- *    -2 Argument manquant
- */
-
-int short_options(int argc, char **argv, char **format, 
-                  char **input, char **output);
 
 /**
  * \fn int manage_format_input(PNM *image, char *format, char *input)
