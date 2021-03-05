@@ -99,7 +99,7 @@ PNM *create_pnm(void);
 char *get_magicNumber(PNM *image);
 
 /**
- * \fn int get_columns(PNM *image)
+ * \fn unsigned short get_columns(PNM *image)
  * \brief Accesseur en lecture pour le champ columns de image*
  * 
  * @param image un pointeur sur PNM
@@ -114,7 +114,7 @@ char *get_magicNumber(PNM *image);
 unsigned short get_columns(PNM *image);
 
 /**
- * \fn int get_rows(PNM *image)
+ * \fn unsigned short get_rows(PNM *image)
  * \brief Accesseur en lecture pour le champ rows de image*
  * 
  * @param image un pointeur sur PNM
@@ -129,7 +129,7 @@ unsigned short get_columns(PNM *image);
 unsigned short get_rows(PNM *image);
 
 /**
- * \fn int get_maxValuePixel(PNM *image)
+ * \fn unsigned short get_maxValuePixel(PNM *image)
  * \brief Accesseur en lecture pour le champ maxValuePixel de image*
  * 
  * @param image un pointeur sur PNM
@@ -144,7 +144,7 @@ unsigned short get_rows(PNM *image);
 unsigned short get_maxValuePixel(PNM *image);
 
 /**
- * \fn int **get_matrix(PNM *image)
+ * \fn unsigned short *get_matrix(PNM *image)
  * \brief Accesseur en lecture pour le champ matrix de image*
  * 
  * @param image un pointeur sur PNM
@@ -159,7 +159,7 @@ unsigned short get_maxValuePixel(PNM *image);
 unsigned short *get_matrix(PNM *image);
 
 /**
- * \fn PNM *set_magicNumber(PNM *image, int magicNumber)
+ * \fn PNM *set_magicNumber(PNM *image, char *magicNumber)
  * \brief Accesseur en écriture pour le champ magicNumber de *image
  * 
  * @param image un pointeur sur PNM
@@ -176,7 +176,7 @@ unsigned short *get_matrix(PNM *image);
 PNM *set_magicNumber(PNM *image, char *magicNumber);
 
 /**
- * \fn PNM *set_columns(PNM *image, int columns)
+ * \fn PNM *set_columns(PNM *image, unsigned short columns)
  * \brief Accesseur en écriture pour le champ columns de *image
  * 
  * @param image un pointeur sur PNM
@@ -192,7 +192,7 @@ PNM *set_magicNumber(PNM *image, char *magicNumber);
 PNM *set_columns(PNM *image, unsigned short columns);
 
 /**
- * \fn PNM *set_rows(PNM *image, int rows)
+ * \fn PNM *set_rows(PNM *image, unsigned short rows)
  * \brief Accesseur en écriture pour le champ rows de *image
  * 
  * @param image un pointeur sur PNM
@@ -208,7 +208,7 @@ PNM *set_columns(PNM *image, unsigned short columns);
 PNM *set_rows(PNM *image, unsigned short rows);
 
 /**
- * \fn PNM *set_maxValuePixel(PNM *image, int maxValuePixel)
+ * \fn PNM *set_maxValuePixel(PNM *image, unsigned short maxValuePixel)
  * \brief Accesseur en écriture pour le champ maxValuePixel de *image
  * 
  * @param image un pointeur sur PNM
@@ -224,7 +224,7 @@ PNM *set_rows(PNM *image, unsigned short rows);
 PNM *set_maxValuePixel(PNM *image, unsigned short maxValuePixel);
 
 /**
- * \fn PNM *set_matrix(PNM *image, int **matrix)
+ * \fn PNM *set_matrix(PNM *image, unsigned short *matrix)
  * \brief Accesseur en écriture pour le champ matrix de *image
  * 
  * @param image un pointeur sur PNM
@@ -240,7 +240,7 @@ PNM *set_maxValuePixel(PNM *image, unsigned short maxValuePixel);
 PNM *set_matrix(PNM *image, unsigned short *matrix);
 
 /**
- * \fn int **create_matrix(PNM *image)
+ * \fn int create_matrix(PNM *image)
  * \brief Crée et alloue dynamiquement la matrice de *image
  * 
  * @param image un pointeur sur PNM
@@ -250,7 +250,7 @@ PNM *set_matrix(PNM *image, unsigned short *matrix);
  * 
  * @return:
  *    image->matrix Succès
- *    NULL Erreur lors de l'allocation dynamique
+ *    -1 Erreur lors de l'allocation dynamique
  */
 
 int create_matrix(PNM *image);
@@ -267,7 +267,7 @@ int create_matrix(PNM *image);
  * 
  * @return:
  *    0 Succès
- *    -3 Le contenu du fichier en input est mal formé (magicNumber)
+ *    -3 Le contenu du fichier en input est mal formé
  */
 
 int load_matrix(PNM *image, FILE *fp);
@@ -284,7 +284,7 @@ int load_matrix(PNM *image, FILE *fp);
  * 
  * @return:
  *    0 Succès
- *    -2 La matrice n'a pas pu être écrite dans le fichier
+ *    -2 L'image n'a pas pu être sauvée dans un fichier
  */
 
 int write_matrix(PNM *image, FILE *fp);
@@ -293,10 +293,10 @@ int write_matrix(PNM *image, FILE *fp);
  * \fn void destroy(PNM *image, unsigned short allocation_value)
  * \brief Libère la mémoire en fonction de l'allocation
  * @param image un pointeur sur PNM
- * @param allocation_value le nombre de couches d'allocations
+ * @param allocation_value le nombre de "couches" d'allocations
  * 
  * @pre: image != NULL, 0 < allocation_value < 4
- * @post: la matrice colonne, la matrice ligne ainsi que *image sont libérés
+ * @post: autant de libérations que d'allocations mémoires
  * 
  * @return:
  *    /

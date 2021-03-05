@@ -182,7 +182,6 @@ int write_matrix(PNM *image, FILE *fp){
       }
       break;
    default :
-      printf("L'image n'a pas pu être sauvée dans un fichier (magicNumber)");
       destroy(image, 2);
       return -2;
    }
