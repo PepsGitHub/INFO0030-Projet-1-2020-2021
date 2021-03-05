@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
          return 0;
       case -2:
          printf("Le nom du fichier en input est mal formé\n");
-         destroy(image, 3);
+         destroy(image, 2);
          return 0;
       case -3:
          printf("Le contenu du fichier en input est mal formé\n");
@@ -99,7 +99,7 @@ int main(int argc, char *argv[]) {
 
    //libération de la mémoire
    
-   destroy(image, 3);
+   destroy(image, 2);
    
    return 0;
 }

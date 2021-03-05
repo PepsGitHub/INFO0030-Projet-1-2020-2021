@@ -156,7 +156,7 @@ unsigned short get_maxValuePixel(PNM *image);
  *    image->matrix Succès
  */
 
-unsigned short **get_matrix(PNM *image);
+unsigned short *get_matrix(PNM *image);
 
 /**
  * \fn PNM *set_magicNumber(PNM *image, int magicNumber)
@@ -237,7 +237,7 @@ PNM *set_maxValuePixel(PNM *image, unsigned short maxValuePixel);
  *    image Succès
  */
 
-PNM *set_matrix(PNM *image, unsigned short **matrix);
+PNM *set_matrix(PNM *image, unsigned short *matrix);
 
 /**
  * \fn int **create_matrix(PNM *image)
@@ -253,7 +253,7 @@ PNM *set_matrix(PNM *image, unsigned short **matrix);
  *    NULL Erreur lors de l'allocation dynamique
  */
 
-unsigned short **create_matrix(PNM *image);
+int create_matrix(PNM *image);
 
 /**
  * \fn int load_matrix(PNM *image, FILE *fp)
@@ -270,7 +270,7 @@ unsigned short **create_matrix(PNM *image);
  *    -3 Le contenu du fichier en input est mal formé (magicNumber)
  */
 
-unsigned short load_matrix(PNM *image, FILE *fp);
+int load_matrix(PNM *image, FILE *fp);
 
 /**
  * \fn int write_matrix(PNM *image, FILE *fp)
@@ -287,7 +287,7 @@ unsigned short load_matrix(PNM *image, FILE *fp);
  *    -2 La matrice n'a pas pu être écrite dans le fichier
  */
 
-unsigned short write_matrix(PNM *image, FILE *fp);
+int write_matrix(PNM *image, FILE *fp);
 
 /**
  * \fn void destroy(PNM *image, unsigned short allocation_value)
