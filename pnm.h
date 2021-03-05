@@ -5,7 +5,7 @@
  * des fonctions pour la manipulation d'images PNM.
  * 
  * @author: Dumoulin Peissone S193957
- * @date: 22/02/21
+ * @date: 05/03/21
  * @projet: INFO0030 Projet 1
  */
 

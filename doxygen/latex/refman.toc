@@ -8,30 +8,26 @@
 \contentsline {section}{\numberline {4.1}P\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}N\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}M\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{7}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Detailed Description}{7}{subsection.4.1.1}%
 \contentsline {chapter}{\numberline {5}File Documentation}{9}{chapter.5}%
-\contentsline {section}{\numberline {5.1}/home/peps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Univ/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projet de programmation/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projets/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projet 1/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projet1/pnm.h File Reference}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.1}/home/peps/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Desktop/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Univ/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projet de programmation/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projets/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projet 1/pnm/pnm.h File Reference}{9}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Detailed Description}{10}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Function Documentation}{11}{subsection.5.1.2}%
-\contentsline {subsubsection}{\numberline {5.1.2.1}create\_matrix()}{11}{subsubsection.5.1.2.1}%
+\contentsline {subsection}{\numberline {5.1.2}Function Documentation}{10}{subsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2.1}create\_matrix()}{10}{subsubsection.5.1.2.1}%
 \contentsline {subsubsection}{\numberline {5.1.2.2}create\_pnm()}{11}{subsubsection.5.1.2.2}%
-\contentsline {subsubsection}{\numberline {5.1.2.3}destroy\_all()}{12}{subsubsection.5.1.2.3}%
-\contentsline {subsubsection}{\numberline {5.1.2.4}destroy\_matrix\_columns()}{12}{subsubsection.5.1.2.4}%
-\contentsline {subsubsection}{\numberline {5.1.2.5}destroy\_matrix\_rows()}{13}{subsubsection.5.1.2.5}%
-\contentsline {subsubsection}{\numberline {5.1.2.6}destroy\_pnm()}{13}{subsubsection.5.1.2.6}%
-\contentsline {subsubsection}{\numberline {5.1.2.7}get\_columns()}{14}{subsubsection.5.1.2.7}%
-\contentsline {subsubsection}{\numberline {5.1.2.8}get\_magicNumber()}{14}{subsubsection.5.1.2.8}%
-\contentsline {subsubsection}{\numberline {5.1.2.9}get\_matrix()}{15}{subsubsection.5.1.2.9}%
-\contentsline {subsubsection}{\numberline {5.1.2.10}get\_maxValuePixel()}{15}{subsubsection.5.1.2.10}%
-\contentsline {subsubsection}{\numberline {5.1.2.11}get\_rows()}{16}{subsubsection.5.1.2.11}%
-\contentsline {subsubsection}{\numberline {5.1.2.12}load\_matrix()}{16}{subsubsection.5.1.2.12}%
-\contentsline {subsubsection}{\numberline {5.1.2.13}load\_pnm()}{17}{subsubsection.5.1.2.13}%
-\contentsline {subsubsection}{\numberline {5.1.2.14}manage\_comments()}{17}{subsubsection.5.1.2.14}%
-\contentsline {subsubsection}{\numberline {5.1.2.15}manage\_format\_input()}{18}{subsubsection.5.1.2.15}%
-\contentsline {subsubsection}{\numberline {5.1.2.16}set\_columns()}{19}{subsubsection.5.1.2.16}%
-\contentsline {subsubsection}{\numberline {5.1.2.17}set\_magicNumber()}{19}{subsubsection.5.1.2.17}%
-\contentsline {subsubsection}{\numberline {5.1.2.18}set\_matrix()}{20}{subsubsection.5.1.2.18}%
-\contentsline {subsubsection}{\numberline {5.1.2.19}set\_maxValuePixel()}{20}{subsubsection.5.1.2.19}%
-\contentsline {subsubsection}{\numberline {5.1.2.20}set\_rows()}{21}{subsubsection.5.1.2.20}%
-\contentsline {subsubsection}{\numberline {5.1.2.21}short\_options()}{21}{subsubsection.5.1.2.21}%
-\contentsline {subsubsection}{\numberline {5.1.2.22}verify\_output()}{22}{subsubsection.5.1.2.22}%
-\contentsline {subsubsection}{\numberline {5.1.2.23}write\_matrix()}{23}{subsubsection.5.1.2.23}%
-\contentsline {chapter}{Index}{25}{section*.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.3}destroy()}{11}{subsubsection.5.1.2.3}%
+\contentsline {subsubsection}{\numberline {5.1.2.4}get\_columns()}{12}{subsubsection.5.1.2.4}%
+\contentsline {subsubsection}{\numberline {5.1.2.5}get\_magicNumber()}{12}{subsubsection.5.1.2.5}%
+\contentsline {subsubsection}{\numberline {5.1.2.6}get\_matrix()}{13}{subsubsection.5.1.2.6}%
+\contentsline {subsubsection}{\numberline {5.1.2.7}get\_maxValuePixel()}{13}{subsubsection.5.1.2.7}%
+\contentsline {subsubsection}{\numberline {5.1.2.8}get\_rows()}{14}{subsubsection.5.1.2.8}%
+\contentsline {subsubsection}{\numberline {5.1.2.9}load\_matrix()}{14}{subsubsection.5.1.2.9}%
+\contentsline {subsubsection}{\numberline {5.1.2.10}load\_pnm()}{15}{subsubsection.5.1.2.10}%
+\contentsline {subsubsection}{\numberline {5.1.2.11}manage\_comments()}{15}{subsubsection.5.1.2.11}%
+\contentsline {subsubsection}{\numberline {5.1.2.12}manage\_format\_input()}{16}{subsubsection.5.1.2.12}%
+\contentsline {subsubsection}{\numberline {5.1.2.13}set\_columns()}{17}{subsubsection.5.1.2.13}%
+\contentsline {subsubsection}{\numberline {5.1.2.14}set\_magicNumber()}{17}{subsubsection.5.1.2.14}%
+\contentsline {subsubsection}{\numberline {5.1.2.15}set\_matrix()}{18}{subsubsection.5.1.2.15}%
+\contentsline {subsubsection}{\numberline {5.1.2.16}set\_maxValuePixel()}{18}{subsubsection.5.1.2.16}%
+\contentsline {subsubsection}{\numberline {5.1.2.17}set\_rows()}{19}{subsubsection.5.1.2.17}%
+\contentsline {subsubsection}{\numberline {5.1.2.18}verify\_output()}{19}{subsubsection.5.1.2.18}%
+\contentsline {subsubsection}{\numberline {5.1.2.19}write\_matrix()}{20}{subsubsection.5.1.2.19}%
+\contentsline {chapter}{Index}{21}{section*.4}%

@@ -1,5 +1,5 @@
-\hypertarget{pnm_8h}{}\doxysection{/home/peps/\+Desktop/\+Univ/\+Projet de programmation/\+Projets/\+Projet 1/\+Projet1/pnm.h File Reference}
-\label{pnm_8h}\index{/home/peps/Desktop/Univ/Projet de programmation/Projets/Projet 1/Projet1/pnm.h@{/home/peps/Desktop/Univ/Projet de programmation/Projets/Projet 1/Projet1/pnm.h}}
+\hypertarget{pnm_8h}{}\doxysection{/home/peps/\+Desktop/\+Univ/\+Projet de programmation/\+Projets/\+Projet 1/pnm/pnm.h File Reference}
+\label{pnm_8h}\index{/home/peps/Desktop/Univ/Projet de programmation/Projets/Projet 1/pnm/pnm.h@{/home/peps/Desktop/Univ/Projet de programmation/Projets/Projet 1/pnm/pnm.h}}
 
 
 Librairie pour gérer les fichiers d\textquotesingle{}extension pnm (.pbm, .pgm, .ppm)  
@@ -21,44 +21,36 @@ int {\bfseries write\+\_\+pnm} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$
 \item 
 \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a91083f36dd80ee24e36ff6b4d9bc4977}{create\+\_\+pnm}} (void)
 \begin{DoxyCompactList}\small\item\em Crée et alloue dynamiquement une variable de type opaque P\+N\+M$\ast$. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{pnm_8h_a547b243309423699779d087dc39ce2eb}{destroy\+\_\+pnm}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée par $\ast$create\+\_\+pnm. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pnm_8h_a70b22ccf901ed4ba64c9e57cdf76212c}{get\+\_\+magic\+Number}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
+char $\ast$ \mbox{\hyperlink{pnm_8h_a2d40e244dbd127d675a5b8db00069feb}{get\+\_\+magic\+Number}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
 \begin{DoxyCompactList}\small\item\em Accesseur en lecture pour le champ magic\+Number de image$\ast$. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pnm_8h_a0f393416b483843d820d9925d70c7912}{get\+\_\+columns}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
+unsigned short \mbox{\hyperlink{pnm_8h_a23f9be656f9bcc4a4c0dda752cb5eec3}{get\+\_\+columns}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
 \begin{DoxyCompactList}\small\item\em Accesseur en lecture pour le champ columns de image$\ast$. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pnm_8h_aeb958679d8f30f86ff9731399dd7a5d8}{get\+\_\+rows}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
+unsigned short \mbox{\hyperlink{pnm_8h_a901df4d5aeceb60611faf395f91232d5}{get\+\_\+rows}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
 \begin{DoxyCompactList}\small\item\em Accesseur en lecture pour le champ rows de image$\ast$. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pnm_8h_aa76b1dfcc9ea351d19eb65ee082d8008}{get\+\_\+max\+Value\+Pixel}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
+unsigned short \mbox{\hyperlink{pnm_8h_a1cb2d38b518c52783d84ec0c11836cad}{get\+\_\+max\+Value\+Pixel}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
 \begin{DoxyCompactList}\small\item\em Accesseur en lecture pour le champ max\+Value\+Pixel de image$\ast$. \end{DoxyCompactList}\item 
-int $\ast$$\ast$ \mbox{\hyperlink{pnm_8h_a4ac780366f95935bcc87e97bebe9b79b}{get\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
+unsigned short $\ast$ \mbox{\hyperlink{pnm_8h_a8672587a600ad77f110fcc7ed7bf1bfe}{get\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
 \begin{DoxyCompactList}\small\item\em Accesseur en lecture pour le champ matrix de image$\ast$. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a047cce615f52a5bd7f8823d4cfaee7f1}{set\+\_\+magic\+Number}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, int magic\+Number)
+\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a7c0fcbb53244631b0a793f3b4718bd37}{set\+\_\+magic\+Number}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, char $\ast$magic\+Number)
 \begin{DoxyCompactList}\small\item\em Accesseur en écriture pour le champ magic\+Number de $\ast$image. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_aa4241162b3abeaa872809e61efab1d0a}{set\+\_\+columns}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, int columns)
+\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_aa550e7de30a9f8fcb6b5a1fa2b17040c}{set\+\_\+columns}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, unsigned short columns)
 \begin{DoxyCompactList}\small\item\em Accesseur en écriture pour le champ columns de $\ast$image. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a0a2fc05ea7f25509ff4586f45c82920c}{set\+\_\+rows}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, int rows)
+\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a7408e95bed0f2d4104b27a7ba5d64142}{set\+\_\+rows}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, unsigned short rows)
 \begin{DoxyCompactList}\small\item\em Accesseur en écriture pour le champ rows de $\ast$image. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a8efba952d2dd8b12a0a8825a11f3cf6b}{set\+\_\+max\+Value\+Pixel}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, int max\+Value\+Pixel)
+\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a4939531f112add0633d5d9feb5dc44d8}{set\+\_\+max\+Value\+Pixel}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, unsigned short max\+Value\+Pixel)
 \begin{DoxyCompactList}\small\item\em Accesseur en écriture pour le champ max\+Value\+Pixel de $\ast$image. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_a936ee2a95e6a8d44c2b954897afeae41}{set\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, int $\ast$$\ast$matrix)
+\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$ \mbox{\hyperlink{pnm_8h_ab53045a8fb9a0e162e179857cf392671}{set\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, unsigned short $\ast$matrix)
 \begin{DoxyCompactList}\small\item\em Accesseur en écriture pour le champ matrix de $\ast$image. \end{DoxyCompactList}\item 
-int $\ast$$\ast$ \mbox{\hyperlink{pnm_8h_a9490e2b1f19a960db22fbb0499a642fb}{create\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
+int \mbox{\hyperlink{pnm_8h_a38aa548069d6bb8934ec582a3dd6b979}{create\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
 \begin{DoxyCompactList}\small\item\em Crée et alloue dynamiquement la matrice de $\ast$image. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pnm_8h_a8f6d192c26830c8ca12d3bff7bb7ac97}{load\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, F\+I\+LE $\ast$fp)
 \begin{DoxyCompactList}\small\item\em Lecture dans un fichier et remplissage de la matrice de $\ast$image. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pnm_8h_aab3a3cf34a6d5b49dfcd9e6a72b33e26}{write\+\_\+matrix}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, F\+I\+LE $\ast$fp)
 \begin{DoxyCompactList}\small\item\em Ecriture de la matrice de $\ast$image dans un fichier. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{pnm_8h_a181e247c145dbccf642ab54446ef5c18}{destroy\+\_\+matrix\+\_\+rows}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée par $\ast$$\ast$create\+\_\+matrix. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{pnm_8h_ac5cd7654e3f3465bad7df75110681389}{destroy\+\_\+matrix\+\_\+columns}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
-\begin{DoxyCompactList}\small\item\em Libère la mémoire allouée par $\ast$$\ast$create\+\_\+matrix. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{pnm_8h_a4b295ed8d9864ca9680c02e0454d4441}{destroy\+\_\+all}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image)
-\begin{DoxyCompactList}\small\item\em Libère toute la mémoire allouée. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pnm_8h_a58491419bac919cbdfabff82bc50cb96}{destroy}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, unsigned short allocation\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Libère la mémoire en fonction de l\textquotesingle{}allocation. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pnm_8h_a73824141663fc2775bfb9d9d6a481c3d}{manage\+\_\+comments}} (F\+I\+LE $\ast$fp)
 \begin{DoxyCompactList}\small\item\em Permet de gérer une ligne pour savoir si on doit l\textquotesingle{}ignorer (celles commençant par \textquotesingle{}\#\textquotesingle{}) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{pnm_8h_a45eaca4f590a850aecb08f101a4d4712}{short\+\_\+options}} (int argc, char $\ast$$\ast$argv, char $\ast$$\ast$format, char $\ast$$\ast$input, char $\ast$$\ast$output)
-\begin{DoxyCompactList}\small\item\em Gère les options courtes passées en argument du programme. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pnm_8h_a365f11a35e9f401b19bc5b6c38970216}{manage\+\_\+format\+\_\+input}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, char $\ast$format, char $\ast$input)
 \begin{DoxyCompactList}\small\item\em Gère si le format correspond au format de l\textquotesingle{}input. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{pnm_8h_abd595448dd589ec1453651197c8dc0bb}{verify\+\_\+output}} (\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$image, char $\ast$output)
@@ -76,7 +68,7 @@ Ce fichier contient les déclarations de types et les prototypes des fonctions p
 \+: Dumoulin Peissone S193957 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-\+: 22/02/21 @projet\+: I\+N\+F\+O0030 Projet 1
+\+: 05/03/21 @projet\+: I\+N\+F\+O0030 Projet 1
 \end{DoxyDate}
 \begin{DoxyAuthor}{Author}
 Peissone Dumoulin -\/ Université de Liège 
@@ -90,11 +82,11 @@ Peissone Dumoulin -\/ Université de Liège
 Déclaration du type opaque P\+NM 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{pnm_8h_a9490e2b1f19a960db22fbb0499a642fb}\label{pnm_8h_a9490e2b1f19a960db22fbb0499a642fb}} 
+\mbox{\Hypertarget{pnm_8h_a38aa548069d6bb8934ec582a3dd6b979}\label{pnm_8h_a38aa548069d6bb8934ec582a3dd6b979}} 
 \index{pnm.h@{pnm.h}!create\_matrix@{create\_matrix}}
 \index{create\_matrix@{create\_matrix}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{create\_matrix()}{create\_matrix()}}
-{\footnotesize\ttfamily int$\ast$$\ast$ create\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int create\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
 
 
 
@@ -112,7 +104,7 @@ Crée et alloue dynamiquement la matrice de $\ast$image.
 \+: matrice allouée
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-\+: image-\/$>$matrix Succès N\+U\+LL Erreur lors de l\textquotesingle{}allocation dynamique 
+\+: image-\/$>$matrix Succès -\/1 Erreur lors de l\textquotesingle{}allocation dynamique 
 \end{DoxyReturn}
 \mbox{\Hypertarget{pnm_8h_a91083f36dd80ee24e36ff6b4d9bc4977}\label{pnm_8h_a91083f36dd80ee24e36ff6b4d9bc4977}} 
 \index{pnm.h@{pnm.h}!create\_pnm@{create\_pnm}}
@@ -138,107 +130,37 @@ Crée et alloue dynamiquement une variable de type opaque P\+N\+M$\ast$.
 \begin{DoxyReturn}{Returns}
 \+: image Succès N\+U\+LL Erreur lors de l\textquotesingle{}allocation dynamique 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a4b295ed8d9864ca9680c02e0454d4441}\label{pnm_8h_a4b295ed8d9864ca9680c02e0454d4441}} 
-\index{pnm.h@{pnm.h}!destroy\_all@{destroy\_all}}
-\index{destroy\_all@{destroy\_all}!pnm.h@{pnm.h}}
-\doxysubsubsection{\texorpdfstring{destroy\_all()}{destroy\_all()}}
-{\footnotesize\ttfamily void destroy\+\_\+all (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{pnm_8h_a58491419bac919cbdfabff82bc50cb96}\label{pnm_8h_a58491419bac919cbdfabff82bc50cb96}} 
+\index{pnm.h@{pnm.h}!destroy@{destroy}}
+\index{destroy@{destroy}!pnm.h@{pnm.h}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily void destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{unsigned short}]{allocation\+\_\+value }\end{DoxyParamCaption})}
 
 
 
-Libère toute la mémoire allouée. 
+Libère la mémoire en fonction de l\textquotesingle{}allocation. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em image} & un pointeur sur P\+NM\\
+{\em image} & un pointeur sur P\+NM \\
+\hline
+{\em allocation\+\_\+value} & le nombre de \char`\"{}couches\char`\"{} d\textquotesingle{}allocations\\
 \hline
 \end{DoxyParams}
 \begin{DoxyPrecond}{Precondition}
-\+: image != N\+U\+LL 
+\+: image != N\+U\+LL, 0 $<$ allocation\+\_\+value $<$ 4 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-\+: la matrice colonne, la matrice ligne ainsi que $\ast$image sont libérés
+\+: autant de libérations que d\textquotesingle{}allocations mémoires
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 \+: / 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_ac5cd7654e3f3465bad7df75110681389}\label{pnm_8h_ac5cd7654e3f3465bad7df75110681389}} 
-\index{pnm.h@{pnm.h}!destroy\_matrix\_columns@{destroy\_matrix\_columns}}
-\index{destroy\_matrix\_columns@{destroy\_matrix\_columns}!pnm.h@{pnm.h}}
-\doxysubsubsection{\texorpdfstring{destroy\_matrix\_columns()}{destroy\_matrix\_columns()}}
-{\footnotesize\ttfamily void destroy\+\_\+matrix\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
-
-
-
-Libère la mémoire allouée par $\ast$$\ast$create\+\_\+matrix. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em image} & un pointeur sur P\+NM\\
-\hline
-\end{DoxyParams}
-\begin{DoxyPrecond}{Precondition}
-\+: image != N\+U\+LL 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-\+: la matrice colonne est libérée
-\end{DoxyPostcond}
-\begin{DoxyReturn}{Returns}
-\+: / 
-\end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a181e247c145dbccf642ab54446ef5c18}\label{pnm_8h_a181e247c145dbccf642ab54446ef5c18}} 
-\index{pnm.h@{pnm.h}!destroy\_matrix\_rows@{destroy\_matrix\_rows}}
-\index{destroy\_matrix\_rows@{destroy\_matrix\_rows}!pnm.h@{pnm.h}}
-\doxysubsubsection{\texorpdfstring{destroy\_matrix\_rows()}{destroy\_matrix\_rows()}}
-{\footnotesize\ttfamily void destroy\+\_\+matrix\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
-
-
-
-Libère la mémoire allouée par $\ast$$\ast$create\+\_\+matrix. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em image} & un pointeur sur P\+NM\\
-\hline
-\end{DoxyParams}
-\begin{DoxyPrecond}{Precondition}
-\+: image != N\+U\+LL 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-\+: la matrice ligne est libérée
-\end{DoxyPostcond}
-\begin{DoxyReturn}{Returns}
-\+: / 
-\end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a547b243309423699779d087dc39ce2eb}\label{pnm_8h_a547b243309423699779d087dc39ce2eb}} 
-\index{pnm.h@{pnm.h}!destroy\_pnm@{destroy\_pnm}}
-\index{destroy\_pnm@{destroy\_pnm}!pnm.h@{pnm.h}}
-\doxysubsubsection{\texorpdfstring{destroy\_pnm()}{destroy\_pnm()}}
-{\footnotesize\ttfamily void destroy\+\_\+pnm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
-
-
-
-Libère la mémoire allouée par $\ast$create\+\_\+pnm. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em image} & un pointeur sur P\+NM\\
-\hline
-\end{DoxyParams}
-\begin{DoxyPrecond}{Precondition}
-\+: image != N\+U\+LL 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-\+: $\ast$image libéré
-\end{DoxyPostcond}
-\begin{DoxyReturn}{Returns}
-\+: / 
-\end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a0f393416b483843d820d9925d70c7912}\label{pnm_8h_a0f393416b483843d820d9925d70c7912}} 
+\mbox{\Hypertarget{pnm_8h_a23f9be656f9bcc4a4c0dda752cb5eec3}\label{pnm_8h_a23f9be656f9bcc4a4c0dda752cb5eec3}} 
 \index{pnm.h@{pnm.h}!get\_columns@{get\_columns}}
 \index{get\_columns@{get\_columns}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{get\_columns()}{get\_columns()}}
-{\footnotesize\ttfamily int get\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unsigned short get\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
 
 
 
@@ -258,11 +180,11 @@ Accesseur en lecture pour le champ columns de image$\ast$.
 \begin{DoxyReturn}{Returns}
 \+: image-\/$>$columns Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a70b22ccf901ed4ba64c9e57cdf76212c}\label{pnm_8h_a70b22ccf901ed4ba64c9e57cdf76212c}} 
+\mbox{\Hypertarget{pnm_8h_a2d40e244dbd127d675a5b8db00069feb}\label{pnm_8h_a2d40e244dbd127d675a5b8db00069feb}} 
 \index{pnm.h@{pnm.h}!get\_magicNumber@{get\_magicNumber}}
 \index{get\_magicNumber@{get\_magicNumber}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{get\_magicNumber()}{get\_magicNumber()}}
-{\footnotesize\ttfamily int get\+\_\+magic\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily char$\ast$ get\+\_\+magic\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
 
 
 
@@ -282,11 +204,11 @@ Accesseur en lecture pour le champ magic\+Number de image$\ast$.
 \begin{DoxyReturn}{Returns}
 \+: image-\/$>$magic\+Number Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a4ac780366f95935bcc87e97bebe9b79b}\label{pnm_8h_a4ac780366f95935bcc87e97bebe9b79b}} 
+\mbox{\Hypertarget{pnm_8h_a8672587a600ad77f110fcc7ed7bf1bfe}\label{pnm_8h_a8672587a600ad77f110fcc7ed7bf1bfe}} 
 \index{pnm.h@{pnm.h}!get\_matrix@{get\_matrix}}
 \index{get\_matrix@{get\_matrix}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{get\_matrix()}{get\_matrix()}}
-{\footnotesize\ttfamily int$\ast$$\ast$ get\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unsigned short$\ast$ get\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
 
 
 
@@ -306,11 +228,11 @@ Accesseur en lecture pour le champ matrix de image$\ast$.
 \begin{DoxyReturn}{Returns}
 \+: image-\/$>$matrix Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_aa76b1dfcc9ea351d19eb65ee082d8008}\label{pnm_8h_aa76b1dfcc9ea351d19eb65ee082d8008}} 
+\mbox{\Hypertarget{pnm_8h_a1cb2d38b518c52783d84ec0c11836cad}\label{pnm_8h_a1cb2d38b518c52783d84ec0c11836cad}} 
 \index{pnm.h@{pnm.h}!get\_maxValuePixel@{get\_maxValuePixel}}
 \index{get\_maxValuePixel@{get\_maxValuePixel}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{get\_maxValuePixel()}{get\_maxValuePixel()}}
-{\footnotesize\ttfamily int get\+\_\+max\+Value\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unsigned short get\+\_\+max\+Value\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
 
 
 
@@ -330,11 +252,11 @@ Accesseur en lecture pour le champ max\+Value\+Pixel de image$\ast$.
 \begin{DoxyReturn}{Returns}
 \+: image-\/$>$get\+Max\+Value\+Pixel Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_aeb958679d8f30f86ff9731399dd7a5d8}\label{pnm_8h_aeb958679d8f30f86ff9731399dd7a5d8}} 
+\mbox{\Hypertarget{pnm_8h_a901df4d5aeceb60611faf395f91232d5}\label{pnm_8h_a901df4d5aeceb60611faf395f91232d5}} 
 \index{pnm.h@{pnm.h}!get\_rows@{get\_rows}}
 \index{get\_rows@{get\_rows}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{get\_rows()}{get\_rows()}}
-{\footnotesize\ttfamily int get\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unsigned short get\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image }\end{DoxyParamCaption})}
 
 
 
@@ -378,7 +300,7 @@ Lecture dans un fichier et remplissage de la matrice de $\ast$image.
 \+: matrice chargée
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-\+: 0 Succès -\/3 Le contenu du fichier en input est mal formé (magic\+Number) 
+\+: 0 Succès -\/3 Le contenu du fichier en input est mal formé 
 \end{DoxyReturn}
 \mbox{\Hypertarget{pnm_8h_adf533a1bc155f9ee83d90c5a1564468f}\label{pnm_8h_adf533a1bc155f9ee83d90c5a1564468f}} 
 \index{pnm.h@{pnm.h}!load\_pnm@{load\_pnm}}
@@ -458,11 +380,11 @@ Gère si le format correspond au format de l\textquotesingle{}input.
 \begin{DoxyReturn}{Returns}
 \+: 0 Succès -\/1 Mauvais format passé en argument 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_aa4241162b3abeaa872809e61efab1d0a}\label{pnm_8h_aa4241162b3abeaa872809e61efab1d0a}} 
+\mbox{\Hypertarget{pnm_8h_aa550e7de30a9f8fcb6b5a1fa2b17040c}\label{pnm_8h_aa550e7de30a9f8fcb6b5a1fa2b17040c}} 
 \index{pnm.h@{pnm.h}!set\_columns@{set\_columns}}
 \index{set\_columns@{set\_columns}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{set\_columns()}{set\_columns()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{int}]{columns }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+columns (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{unsigned short}]{columns }\end{DoxyParamCaption})}
 
 
 
@@ -484,11 +406,11 @@ Accesseur en écriture pour le champ columns de $\ast$image.
 \begin{DoxyReturn}{Returns}
 \+: image Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a047cce615f52a5bd7f8823d4cfaee7f1}\label{pnm_8h_a047cce615f52a5bd7f8823d4cfaee7f1}} 
+\mbox{\Hypertarget{pnm_8h_a7c0fcbb53244631b0a793f3b4718bd37}\label{pnm_8h_a7c0fcbb53244631b0a793f3b4718bd37}} 
 \index{pnm.h@{pnm.h}!set\_magicNumber@{set\_magicNumber}}
 \index{set\_magicNumber@{set\_magicNumber}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{set\_magicNumber()}{set\_magicNumber()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+magic\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{int}]{magic\+Number }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+magic\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{char $\ast$}]{magic\+Number }\end{DoxyParamCaption})}
 
 
 
@@ -498,7 +420,7 @@ Accesseur en écriture pour le champ magic\+Number de $\ast$image.
 \begin{DoxyParams}{Parameters}
 {\em image} & un pointeur sur P\+NM \\
 \hline
-{\em magic\+Number} & nombre qui caractérise le type de fichier (1 pour pbm, 2 pour pgm, 3 pour ppm)\\
+{\em magic\+Number} & nombre magique qui caractérise le type de fichier (\char`\"{}\+P1\char`\"{}\char`\"{} pour pbm, \char`\"{}P2\char`\"{} pour pgm, \char`\"{}P3" pour ppm)\\
 \hline
 \end{DoxyParams}
 \begin{DoxyPrecond}{Precondition}
@@ -510,11 +432,11 @@ Accesseur en écriture pour le champ magic\+Number de $\ast$image.
 \begin{DoxyReturn}{Returns}
 \+: image Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a936ee2a95e6a8d44c2b954897afeae41}\label{pnm_8h_a936ee2a95e6a8d44c2b954897afeae41}} 
+\mbox{\Hypertarget{pnm_8h_ab53045a8fb9a0e162e179857cf392671}\label{pnm_8h_ab53045a8fb9a0e162e179857cf392671}} 
 \index{pnm.h@{pnm.h}!set\_matrix@{set\_matrix}}
 \index{set\_matrix@{set\_matrix}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{set\_matrix()}{set\_matrix()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{int $\ast$$\ast$}]{matrix }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{unsigned short $\ast$}]{matrix }\end{DoxyParamCaption})}
 
 
 
@@ -536,11 +458,11 @@ Accesseur en écriture pour le champ matrix de $\ast$image.
 \begin{DoxyReturn}{Returns}
 \+: image Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a8efba952d2dd8b12a0a8825a11f3cf6b}\label{pnm_8h_a8efba952d2dd8b12a0a8825a11f3cf6b}} 
+\mbox{\Hypertarget{pnm_8h_a4939531f112add0633d5d9feb5dc44d8}\label{pnm_8h_a4939531f112add0633d5d9feb5dc44d8}} 
 \index{pnm.h@{pnm.h}!set\_maxValuePixel@{set\_maxValuePixel}}
 \index{set\_maxValuePixel@{set\_maxValuePixel}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{set\_maxValuePixel()}{set\_maxValuePixel()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+max\+Value\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{int}]{max\+Value\+Pixel }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+max\+Value\+Pixel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{unsigned short}]{max\+Value\+Pixel }\end{DoxyParamCaption})}
 
 
 
@@ -562,11 +484,11 @@ Accesseur en écriture pour le champ max\+Value\+Pixel de $\ast$image.
 \begin{DoxyReturn}{Returns}
 \+: image Succès 
 \end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a0a2fc05ea7f25509ff4586f45c82920c}\label{pnm_8h_a0a2fc05ea7f25509ff4586f45c82920c}} 
+\mbox{\Hypertarget{pnm_8h_a7408e95bed0f2d4104b27a7ba5d64142}\label{pnm_8h_a7408e95bed0f2d4104b27a7ba5d64142}} 
 \index{pnm.h@{pnm.h}!set\_rows@{set\_rows}}
 \index{set\_rows@{set\_rows}!pnm.h@{pnm.h}}
 \doxysubsubsection{\texorpdfstring{set\_rows()}{set\_rows()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{int}]{rows }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_n_m__t}{P\+NM}}$\ast$ set\+\_\+rows (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_n_m__t}{P\+NM}} $\ast$}]{image,  }\item[{unsigned short}]{rows }\end{DoxyParamCaption})}
 
 
 
@@ -587,38 +509,6 @@ Accesseur en écriture pour le champ rows de $\ast$image.
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 \+: image Succès 
-\end{DoxyReturn}
-\mbox{\Hypertarget{pnm_8h_a45eaca4f590a850aecb08f101a4d4712}\label{pnm_8h_a45eaca4f590a850aecb08f101a4d4712}} 
-\index{pnm.h@{pnm.h}!short\_options@{short\_options}}
-\index{short\_options@{short\_options}!pnm.h@{pnm.h}}
-\doxysubsubsection{\texorpdfstring{short\_options()}{short\_options()}}
-{\footnotesize\ttfamily int short\+\_\+options (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv,  }\item[{char $\ast$$\ast$}]{format,  }\item[{char $\ast$$\ast$}]{input,  }\item[{char $\ast$$\ast$}]{output }\end{DoxyParamCaption})}
-
-
-
-Gère les options courtes passées en argument du programme. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em argc} & le nombre d\textquotesingle{}arguments \\
-\hline
-{\em argv} & un tableau d\textquotesingle{}arguments \\
-\hline
-{\em format} & le format du fichier \\
-\hline
-{\em input} & le nom du fichier en entrée \\
-\hline
-{\em output} & le nom du fichier en sortie\\
-\hline
-\end{DoxyParams}
-\begin{DoxyPrecond}{Precondition}
-\+: argv != N\+U\+LL 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-\+: options courtes gérées correctement
-\end{DoxyPostcond}
-\begin{DoxyReturn}{Returns}
-\+: 0 Succès -\/1 Option inconnue -\/2 Argument manquant 
 \end{DoxyReturn}
 \mbox{\Hypertarget{pnm_8h_abd595448dd589ec1453651197c8dc0bb}\label{pnm_8h_abd595448dd589ec1453651197c8dc0bb}} 
 \index{pnm.h@{pnm.h}!verify\_output@{verify\_output}}
@@ -670,5 +560,5 @@ Ecriture de la matrice de $\ast$image dans un fichier.
 \+: matrice
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-\+: 0 Succès -\/2 La matrice n\textquotesingle{}a pas pu être écrite dans le fichier 
+\+: 0 Succès -\/2 L\textquotesingle{}image n\textquotesingle{}a pas pu être sauvée dans un fichier 
 \end{DoxyReturn}

@@ -1,104 +1,92 @@
 \begin{theindex}
 
-  \item {/home/peps/Desktop/Univ/Projet de programmation/Projets/Projet 1/Projet1/pnm.h}, 
+  \item {/home/peps/Desktop/Univ/Projet de programmation/Projets/Projet 1/pnm/pnm.h}, 
 		\hyperpage{9}
 
   \indexspace
 
   \item {create\_matrix}
-    \subitem {pnm.h}, \hyperpage{11}
+    \subitem {pnm.h}, \hyperpage{10}
   \item {create\_pnm}
     \subitem {pnm.h}, \hyperpage{11}
 
   \indexspace
 
-  \item {destroy\_all}
-    \subitem {pnm.h}, \hyperpage{12}
-  \item {destroy\_matrix\_columns}
-    \subitem {pnm.h}, \hyperpage{12}
-  \item {destroy\_matrix\_rows}
-    \subitem {pnm.h}, \hyperpage{13}
-  \item {destroy\_pnm}
-    \subitem {pnm.h}, \hyperpage{13}
+  \item {destroy}
+    \subitem {pnm.h}, \hyperpage{11}
 
   \indexspace
 
   \item {get\_columns}
-    \subitem {pnm.h}, \hyperpage{14}
+    \subitem {pnm.h}, \hyperpage{12}
   \item {get\_magicNumber}
-    \subitem {pnm.h}, \hyperpage{14}
+    \subitem {pnm.h}, \hyperpage{12}
   \item {get\_matrix}
-    \subitem {pnm.h}, \hyperpage{15}
+    \subitem {pnm.h}, \hyperpage{13}
   \item {get\_maxValuePixel}
-    \subitem {pnm.h}, \hyperpage{15}
+    \subitem {pnm.h}, \hyperpage{13}
   \item {get\_rows}
-    \subitem {pnm.h}, \hyperpage{16}
+    \subitem {pnm.h}, \hyperpage{14}
 
   \indexspace
 
   \item {load\_matrix}
-    \subitem {pnm.h}, \hyperpage{16}
+    \subitem {pnm.h}, \hyperpage{14}
   \item {load\_pnm}
-    \subitem {pnm.h}, \hyperpage{17}
+    \subitem {pnm.h}, \hyperpage{15}
 
   \indexspace
 
   \item {manage\_comments}
-    \subitem {pnm.h}, \hyperpage{17}
+    \subitem {pnm.h}, \hyperpage{15}
   \item {manage\_format\_input}
-    \subitem {pnm.h}, \hyperpage{18}
+    \subitem {pnm.h}, \hyperpage{16}
 
   \indexspace
 
   \item {pnm.h}
-    \subitem {create\_matrix}, \hyperpage{11}
+    \subitem {create\_matrix}, \hyperpage{10}
     \subitem {create\_pnm}, \hyperpage{11}
-    \subitem {destroy\_all}, \hyperpage{12}
-    \subitem {destroy\_matrix\_columns}, \hyperpage{12}
-    \subitem {destroy\_matrix\_rows}, \hyperpage{13}
-    \subitem {destroy\_pnm}, \hyperpage{13}
-    \subitem {get\_columns}, \hyperpage{14}
-    \subitem {get\_magicNumber}, \hyperpage{14}
-    \subitem {get\_matrix}, \hyperpage{15}
-    \subitem {get\_maxValuePixel}, \hyperpage{15}
-    \subitem {get\_rows}, \hyperpage{16}
-    \subitem {load\_matrix}, \hyperpage{16}
-    \subitem {load\_pnm}, \hyperpage{17}
-    \subitem {manage\_comments}, \hyperpage{17}
-    \subitem {manage\_format\_input}, \hyperpage{18}
-    \subitem {set\_columns}, \hyperpage{18}
-    \subitem {set\_magicNumber}, \hyperpage{19}
-    \subitem {set\_matrix}, \hyperpage{20}
-    \subitem {set\_maxValuePixel}, \hyperpage{20}
-    \subitem {set\_rows}, \hyperpage{21}
-    \subitem {short\_options}, \hyperpage{21}
-    \subitem {verify\_output}, \hyperpage{22}
-    \subitem {write\_matrix}, \hyperpage{22}
+    \subitem {destroy}, \hyperpage{11}
+    \subitem {get\_columns}, \hyperpage{12}
+    \subitem {get\_magicNumber}, \hyperpage{12}
+    \subitem {get\_matrix}, \hyperpage{13}
+    \subitem {get\_maxValuePixel}, \hyperpage{13}
+    \subitem {get\_rows}, \hyperpage{14}
+    \subitem {load\_matrix}, \hyperpage{14}
+    \subitem {load\_pnm}, \hyperpage{15}
+    \subitem {manage\_comments}, \hyperpage{15}
+    \subitem {manage\_format\_input}, \hyperpage{16}
+    \subitem {set\_columns}, \hyperpage{16}
+    \subitem {set\_magicNumber}, \hyperpage{17}
+    \subitem {set\_matrix}, \hyperpage{18}
+    \subitem {set\_maxValuePixel}, \hyperpage{18}
+    \subitem {set\_rows}, \hyperpage{19}
+    \subitem {verify\_output}, \hyperpage{19}
+    \subitem {write\_matrix}, \hyperpage{20}
   \item {PNM\_t}, \hyperpage{7}
 
   \indexspace
 
   \item {set\_columns}
-    \subitem {pnm.h}, \hyperpage{18}
+    \subitem {pnm.h}, \hyperpage{16}
   \item {set\_magicNumber}
-    \subitem {pnm.h}, \hyperpage{19}
+    \subitem {pnm.h}, \hyperpage{17}
   \item {set\_matrix}
-    \subitem {pnm.h}, \hyperpage{20}
+    \subitem {pnm.h}, \hyperpage{18}
   \item {set\_maxValuePixel}
-    \subitem {pnm.h}, \hyperpage{20}
+    \subitem {pnm.h}, \hyperpage{18}
   \item {set\_rows}
-    \subitem {pnm.h}, \hyperpage{21}
-  \item {short\_options}
-    \subitem {pnm.h}, \hyperpage{21}
+    \subitem {pnm.h}, \hyperpage{19}
 
   \indexspace
 
   \item {verify\_output}
-    \subitem {pnm.h}, \hyperpage{22}
+    \subitem {pnm.h}, \hyperpage{19}
 
   \indexspace
 
   \item {write\_matrix}
-    \subitem {pnm.h}, \hyperpage{22}
+    \subitem {pnm.h}, \hyperpage{20}
 
 \end{theindex}
