@@ -142,14 +142,14 @@ int load_matrix(PNM *image, FILE *fp){
    case '2':
       for(int i = 0; i < get_rows(image) * get_columns(image); i++){
             manage_comments(fp);
-            if(fscanf(fp,"%hu ", &(image->matrix[i])) != EOF)
+            if(fscanf(fp,"%hu ", &(image->matrix[i])) == EOF)
                return -3;
          }
       break;
    case '3':
       for(int i = 0; i < get_rows(image) * get_columns(image) * TRIPLET; i++){
             manage_comments(fp);
-            if(fscanf(fp,"%hu ", &(image->matrix[i])) != EOF)
+            if(fscanf(fp,"%hu ", &(image->matrix[i])) == EOF)
                return -3;
          }
       break;
